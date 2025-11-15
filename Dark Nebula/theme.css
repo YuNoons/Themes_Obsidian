@@ -1,0 +1,6062 @@
+/* ==========================================================================
+   Dark Nebula Theme for Obsidian
+   Version: 2.0.0
+   Full coverage - 2000+ lines
+   ========================================================================== */
+
+/* ==========================================================================
+   Part 1: CSS Variables & Reset
+   ========================================================================== */
+
+:root {
+  /* ==================== ЦВЕТА ФОНА ==================== */
+  --background-primary: #1a0b1f !important;
+  --background-primary-alt: #160916 !important;
+  --background-secondary: #250b0b !important;
+  --background-secondary-alt: #1f0814 !important;
+  --background-modifier-border: #3d1a2c !important;
+  --background-modifier-border-hover: #4a1e3a !important;
+  --background-modifier-border-focus: #5d2549 !important;
+  --background-modifier-form-field: #2a1a2f !important;
+  --background-modifier-form-field-highlighted: #3d1a2c !important;
+  --background-modifier-cover: rgba(26, 11, 31, 0.8) !important;
+  
+  /* ==================== ЦВЕТА ТЕКСТА ==================== */
+  --text-normal: #e0d6e6 !important;
+  --text-muted: #b8a4c4 !important;
+  --text-faint: #7a5c87 !important;
+  --text-error: #ff6b6b !important;
+  --text-error-hover: #ff8e8e !important;
+  --text-success: #6bff8e !important;
+  --text-warning: #ffd16b !important;
+  --text-accent: #ff6b9d !important;
+  --text-accent-hover: #ff8ab0 !important;
+  --text-on-accent: #ffffff !important;
+  --text-selection: rgba(255, 107, 157, 0.2) !important;
+  
+  /* ==================== ИНТЕРАКТИВНЫЕ ЭЛЕМЕНТЫ ==================== */
+  --interactive-normal: #4a1e3a !important;
+  --interactive-hover: #5d2549 !important;
+  --interactive-accent: #c7244a !important;
+  --interactive-accent-hover: #e5305c !important;
+  --interactive-success: #2d8a4b !important;
+  --interactive-danger: #c7244a !important;
+  --interactive-warning: #b58a2d !important;
+  
+  /* ==================== ЗАГОЛОВКИ ==================== */
+  --h1-color: #ff6b9d !important;
+  --h2-color: #c7244a !important;
+  --h3-color: #9d4edd !important;
+  --h4-color: #b8a4c4 !important;
+  --h5-color: #a893b8 !important;
+  --h6-color: #9885a8 !important;
+  
+  /* ==================== ССЫЛКИ ==================== */
+  --link-color: #ff6b9d !important;
+  --link-color-hover: #ff8ab0 !important;
+  --link-external-color: #ff6b9d !important;
+  --link-external-color-hover: #ff8ab0 !important;
+  --link-unresolved-color: #ff6b6b !important;
+  --link-unresolved-color-hover: #ff8e8e !important;
+  --link-unresolved-opacity: 0.7 !important;
+  
+  /* ==================== КОД ==================== */
+  --code-normal: #a3eeff !important;
+  --code-background: #2a1a2f !important;
+  --code-comment: #7a5c87 !important;
+  --code-keyword: #ff6b9d !important;
+  --code-string: #6bff8e !important;
+  --code-function: #a3eeff !important;
+  --code-operator: #ffd16b !important;
+  --code-punctuation: #b8a4c4 !important;
+  --code-number: #9d4edd !important;
+  --code-tag: #ff8ab0 !important;
+  --code-property: #6bff8e !important;
+  
+  /* ==================== ТЕГИ ==================== */
+  --tag-color: #ff6b9d !important;
+  --tag-background: rgba(255, 107, 157, 0.15) !important;
+  --tag-background-hover: rgba(255, 107, 157, 0.25) !important;
+  --tag-border-color: rgba(255, 107, 157, 0.3) !important;
+  --tag-border-color-hover: rgba(255, 107, 157, 0.5) !important;
+  
+  /* ==================== ТАБЛИЦЫ ==================== */
+  --table-background: rgba(42, 26, 47, 0.3) !important;
+  --table-border-color: #3d1a2c !important;
+  --table-header-background: rgba(74, 30, 58, 0.5) !important;
+  --table-header-color: #e0d6e6 !important;
+  --table-row-background: rgba(42, 26, 47, 0.1) !important;
+  --table-row-background-hover: rgba(74, 30, 58, 0.2) !important;
+  --table-row-alt-background: rgba(31, 8, 20, 0.2) !important;
+  
+  /* ==================== ЦИТАТЫ ==================== */
+  --quote-opening-modifier: #3d1a2c !important;
+  --quote-background: rgba(31, 8, 20, 0.3) !important;
+  --quote-border: #4a1e3a !important;
+  
+  /* ==================== ВСПОМОГАТЕЛЬНЫЕ ==================== */
+  --text-highlight-bg: rgba(199, 36, 74, 0.4) !important;
+  --text-selection: rgba(255, 107, 157, 0.3) !important;
+  --icon-color: #b8a4c4 !important;
+  --icon-color-hover: #e0d6e6 !important;
+  --icon-color-active: #ff6b9d !important;
+  --icon-color-focused: #ff8ab0 !important;
+  
+  /* ==================== СКРОЛЛБАРЫ ==================== */
+  --scrollbar-bg: #160916 !important;
+  --scrollbar-thumb-bg: #4a1e3a !important;
+  --scrollbar-thumb-bg-hover: #5d2549 !important;
+  --scrollbar-width: 10px !important;
+  --scrollbar-radius: 5px !important;
+  
+  /* ==================== ТЕНИ И ЭФФЕКТЫ ==================== */
+  --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  --shadow-m: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  --shadow-l: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.6) !important;
+  
+  /* ==================== АНИМАЦИИ ==================== */
+  --anim-duration-superfast: 0.1s !important;
+  --anim-duration-fast: 0.2s !important;
+  --anim-duration-normal: 0.3s !important;
+  --anim-duration-slow: 0.5s !important;
+  
+  /* ==================== РАДИУСЫ ==================== */
+  --radius-s: 3px !important;
+  --radius-m: 5px !important;
+  --radius-l: 8px !important;
+  --radius-xl: 12px !important;
+  
+  /* ==================== РАЗМЕРЫ ==================== */
+  --size-4-1: 4px !important;
+  --size-4-2: 8px !important;
+  --size-4-3: 12px !important;
+  --size-4-4: 16px !important;
+  --size-4-5: 20px !important;
+  --size-4-6: 24px !important;
+  --size-4-8: 32px !important;
+  --size-4-9: 36px !important;
+  --size-4-10: 40px !important;
+  --size-4-12: 48px !important;
+  --size-4-16: 64px !important;
+}
+
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+.theme-dark {
+  --background-primary: var(--background-primary) !important;
+  --background-secondary: var(--background-secondary) !important;
+  --background-modifier-border: var(--background-modifier-border) !important;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--text-selection) !important;
+  color: inherit !important;
+}
+
+::-moz-selection {
+  background-color: var(--text-selection) !important;
+  color: inherit !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width) !important;
+  height: var(--scrollbar-width) !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg) !important;
+  border-radius: var(--scrollbar-radius) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg) !important;
+  border-radius: var(--scrollbar-radius) !important;
+  border: 2px solid var(--scrollbar-bg) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-bg-hover) !important;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-bg) !important;
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 2px solid var(--interactive-accent) !important;
+  outline-offset: 2px !important;
+  border-radius: var(--radius-s) !important;
+}
+
+/* Loading animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.loading-pulse {
+  animation: pulse-glow 2s ease-in-out infinite !important;
+}
+
+/* Neon glow effects */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.neon-glow {
+  animation: neon-pulse 3s ease-in-out infinite !important;
+}
+
+/* Transition for smooth color changes */
+* {
+  transition: background-color var(--anim-duration-fast) ease,
+              color var(--anim-duration-fast) ease,
+              border-color var(--anim-duration-fast) ease,
+              box-shadow var(--anim-duration-fast) ease !important;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.text-accent { color: var(--text-accent) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.text-faint { color: var(--text-faint) !important; }
+.text-error { color: var(--text-error) !important; }
+.text-success { color: var(--text-success) !important; }
+.text-warning { color: var(--text-warning) !important; }
+
+.bg-primary { background-color: var(--background-primary) !important; }
+.bg-secondary { background-color: var(--background-secondary) !important; }
+.bg-accent { background-color: var(--interactive-accent) !important; }
+
+.border-normal { border-color: var(--background-modifier-border) !important; }
+.border-accent { border-color: var(--text-accent) !important; }
+
+.rounded-s { border-radius: var(--radius-s) !important; }
+.rounded-m { border-radius: var(--radius-m) !important; }
+.rounded-l { border-radius: var(--radius-l) !important; }
+
+.shadow-s { box-shadow: var(--shadow-s) !important; }
+.shadow-m { box-shadow: var(--shadow-m) !important; }
+.shadow-l { box-shadow: var(--shadow-l) !important; }
+
+/* Hidden utility classes */
+.is-hidden { display: none !important; }
+.is-visible { display: block !important; }
+.is-transparent { opacity: 0 !important; }
+.is-opaque { opacity: 1 !important; }
+
+/* Flex utilities */
+.flex { display: flex !important; }
+.flex-column { flex-direction: column !important; }
+.flex-row { flex-direction: row !important; }
+.flex-center { 
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.flex-between {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Text utilities */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.text-xs { font-size: 0.75rem !important; }
+.text-sm { font-size: 0.875rem !important; }
+.text-base { font-size: 1rem !important; }
+.text-lg { font-size: 1.125rem !important; }
+.text-xl { font-size: 1.25rem !important; }
+.text-2xl { font-size: 1.5rem !important; }
+
+.font-light { font-weight: 300 !important; }
+.font-normal { font-weight: 400 !important; }
+.font-medium { font-weight: 500 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-bold { font-weight: 700 !important; }
+
+/* Spacing utilities */
+.p-0 { padding: 0 !important; }
+.p-1 { padding: var(--size-4-1) !important; }
+.p-2 { padding: var(--size-4-2) !important; }
+.p-3 { padding: var(--size-4-3) !important; }
+.p-4 { padding: var(--size-4-4) !important; }
+
+.m-0 { margin: 0 !important; }
+.m-1 { margin: var(--size-4-1) !important; }
+.m-2 { margin: var(--size-4-2) !important; }
+.m-3 { margin: var(--size-4-3) !important; }
+.m-4 { margin: var(--size-4-4) !important; }
+
+/* Width & Height utilities */
+.w-full { width: 100% !important; }
+.w-auto { width: auto !important; }
+.h-full { height: 100% !important; }
+.h-auto { height: auto !important; }
+
+/* Position utilities */
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.fixed { position: fixed !important; }
+.sticky { position: sticky !important; }
+
+/* Overflow utilities */
+.overflow-hidden { overflow: hidden !important; }
+.overflow-auto { overflow: auto !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+/* Cursor utilities */
+.cursor-pointer { cursor: pointer !important; }
+.cursor-default { cursor: default !important; }
+.cursor-text { cursor: text !important; }
+.cursor-not-allowed { cursor: not-allowed !important; }
+
+/* User select */
+.select-none { user-select: none !important; }
+.select-text { user-select: text !important; }
+.select-all { user-select: all !important; }
+
+/* Opacity utilities */
+.opacity-0 { opacity: 0 !important; }
+.opacity-25 { opacity: 0.25 !important; }
+.opacity-50 { opacity: 0.5 !important; }
+.opacity-75 { opacity: 0.75 !important; }
+.opacity-100 { opacity: 1 !important; }
+
+/* Z-index utilities */
+.z-0 { z-index: 0 !important; }
+.z-10 { z-index: 10 !important; }
+.z-20 { z-index: 20 !important; }
+.z-30 { z-index: 30 !important; }
+.z-40 { z-index: 40 !important; }
+.z-50 { z-index: 50 !important; }
+.z-auto { z-index: auto !important; }
+
+/* Display utilities */
+.block { display: block !important; }
+.inline-block { display: inline-block !important; }
+.inline { display: inline !important; }
+.flex { display: flex !important; }
+.inline-flex { display: inline-flex !important; }
+.grid { display: grid !important; }
+.inline-grid { display: inline-grid !important; }
+
+/* Visibility utilities */
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+/* ==========================================================================
+   End of Part 1
+   ========================================================================== */
+   /* ==========================================================================
+   Part 2: Workspace & Main Components
+   ========================================================================== */
+
+/* ==================== РАБОЧАЯ ОБЛАСТЬ ==================== */
+.workspace {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+}
+
+.workspace-tabs {
+  background-color: var(--background-primary) !important;
+}
+
+.workspace-leaf {
+  background-color: var(--background-primary) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+.workspace-leaf-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+}
+
+/* ==================== ВКЛАДКИ ==================== */
+.workspace-tab-header {
+  background-color: var(--background-primary-alt) !important;
+  color: var(--text-muted) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  position: relative !important;
+}
+
+.workspace-tab-header:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.workspace-tab-header.is-active {
+  background-color: var(--background-primary) !important;
+  color: var(--text-accent) !important;
+  border-bottom: 2px solid var(--text-accent) !important;
+}
+
+.workspace-tab-header.is-active::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--text-accent) 20%, 
+    var(--text-accent) 80%, 
+    transparent 100%) !important;
+  animation: neon-pulse 3s ease-in-out infinite !important;
+}
+
+.workspace-tab-header-inner {
+  padding: 4px 8px !important;
+}
+
+.workspace-tab-container {
+  background-color: var(--background-primary) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+/* ==================== СPLIT VIEW ==================== */
+.workspace-split {
+  background-color: var(--background-primary) !important;
+}
+
+.workspace-split.mod-root {
+  background-color: var(--background-primary) !important;
+}
+
+.workspace-split.mod-horizontal {
+  border-color: var(--background-modifier-border) !important;
+}
+
+.workspace-split.mod-vertical {
+  border-color: var(--background-modifier-border) !important;
+}
+
+/* ==================== ПАНЕЛИ ==================== */
+.workspace-leaf-resize-handle {
+  background-color: var(--background-modifier-border) !important;
+  transition: background-color var(--anim-duration-fast) ease !important;
+}
+
+.workspace-leaf-resize-handle:hover {
+  background-color: var(--interactive-accent) !important;
+}
+
+.workspace-leaf-resize-handle.active {
+  background-color: var(--text-accent) !important;
+}
+
+/* ==================== ОКНО РЕДАКТОРА ==================== */
+.workspace-leaf .view-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+}
+
+.markdown-source-view {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+}
+
+.markdown-preview-view {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+}
+
+/* ==================== СТАТУС БАР ==================== */
+.status-bar {
+  background-color: var(--background-primary-alt) !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  padding: 4px 12px !important;
+  height: auto !important;
+  min-height: 28px !important;
+}
+
+.status-bar-item {
+  color: var(--text-muted) !important;
+  padding: 2px 6px !important;
+  border-radius: var(--radius-s) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.status-bar-item:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.status-bar-item-segment {
+  border-color: var(--background-modifier-border) !important;
+}
+
+.status-bar-item.plugin-update-available {
+  color: var(--text-warning) !important;
+  font-weight: 600 !important;
+}
+
+.status-bar-item.sync-status {
+  color: var(--text-success) !important;
+}
+
+.status-bar-item.sync-status.syncing {
+  color: var(--text-warning) !important;
+}
+
+.status-bar-item.sync-status.error {
+  color: var(--text-error) !important;
+}
+
+/* ==================== НАВИГАЦИЯ ==================== */
+.nav-header {
+  background-color: var(--background-primary-alt) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 8px 12px !important;
+}
+
+.nav-buttons-container {
+  gap: 4px !important;
+}
+
+.nav-action-button {
+  background-color: transparent !important;
+  color: var(--text-muted) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--radius-m) !important;
+  padding: 6px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.nav-action-button:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+.nav-action-button.is-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+/* ==================== ФАЙЛОВЫЙ МЕНЕДЖЕР ==================== */
+.workspace-leaf-content[data-type="file-explorer"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="file-explorer"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.nav-folder {
+  padding: 2px 0 !important;
+}
+
+.nav-folder-title {
+  color: var(--text-normal) !important;
+  background-color: transparent !important;
+  padding: 4px 8px 4px 12px !important;
+  margin: 1px 0 !important;
+  border-radius: var(--radius-s) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border: 1px solid transparent !important;
+}
+
+.nav-folder-title:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+.nav-folder-title.is-being-dragged-over {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+.nav-folder-title-content {
+  font-weight: inherit !important;
+}
+
+.nav-folder-collapse-indicator {
+  color: var(--text-muted) !important;
+  opacity: 0.7 !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.nav-folder-title:hover .nav-folder-collapse-indicator {
+  color: var(--text-normal) !important;
+  opacity: 1 !important;
+}
+
+.nav-file {
+  padding: 1px 0 !important;
+}
+
+.nav-file-title {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+  padding: 4px 8px 4px 20px !important;
+  margin: 1px 0 !important;
+  border-radius: var(--radius-s) !important;
+  font-size: 14px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border: 1px solid transparent !important;
+}
+
+.nav-file-title:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+.nav-file-title.is-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+  font-weight: 600 !important;
+}
+
+.nav-file-title.is-being-dragged-over {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+.nav-file-title-content {
+  font-weight: inherit !important;
+}
+
+/* ==================== ПОИСК ==================== */
+.workspace-leaf-content[data-type="search"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="search"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.search-input-container {
+  background-color: var(--background-primary) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 12px !important;
+}
+
+.search-input {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-normal) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.search-input:focus {
+  background-color: var(--background-modifier-form-field-highlighted) !important;
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+.search-input::placeholder {
+  color: var(--text-faint) !important;
+}
+
+.search-result-container {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.search-result {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 12px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.search-result:hover {
+  background-color: var(--interactive-hover) !important;
+}
+
+.search-result-file-match {
+  background-color: transparent !important;
+}
+
+.search-result-file-title {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.search-result-file-matches {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+}
+
+.search-result-file-matched-text {
+  background-color: var(--text-highlight-bg) !important;
+  color: var(--text-normal) !important;
+  padding: 1px 2px !important;
+  border-radius: var(--radius-s) !important;
+  font-weight: 600 !important;
+}
+
+/* ==================== ОБРАТНЫЕ ССЫЛКИ ==================== */
+.workspace-leaf-content[data-type="backlink"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="backlink"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.backlink-pane {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.backlink-pane .search-result-container {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.backlink-pane .search-result {
+  border-color: var(--background-modifier-border) !important;
+}
+
+/* ==================== ОГЛАВЛЕНИЕ ==================== */
+.workspace-leaf-content[data-type="outline"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="outline"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.outline {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.outline .tree-item {
+  color: var(--text-muted) !important;
+  padding: 4px 8px !important;
+  border-radius: var(--radius-s) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border-left: 2px solid transparent !important;
+}
+
+.outline .tree-item:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.outline .tree-item.is-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-left-color: var(--text-accent) !important;
+}
+
+.outline .tree-item-inner {
+  font-size: 14px !important;
+}
+
+/* ==================== ЗАКЛАДКИ ==================== */
+.workspace-leaf-content[data-type="bookmarks"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="bookmarks"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+/* ==================== ПАНЕЛЬ СВОЙСТВ ==================== */
+.workspace-leaf-content[data-type="properties"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="properties"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+/* ==================== ПАНЕЛЬ ТЕГОВ ==================== */
+.workspace-leaf-content[data-type="tag-pane"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="tag-pane"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.tag-pane-tag {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+  padding: 4px 8px !important;
+  border-radius: var(--radius-s) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border: 1px solid transparent !important;
+}
+
+.tag-pane-tag:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border) !important;
+}
+
+.tag-pane-tag.is-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.tag-pane-tag-count {
+  color: var(--text-faint) !important;
+  background-color: var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 1px 4px !important;
+  font-size: 11px !important;
+  margin-left: 4px !important;
+}
+
+/* ==================== КАЛЕНДАРЬ ==================== */
+.workspace-leaf-content[data-type="calendar"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="calendar"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+/* ==================== ПАНЕЛЬ КАРТ ==================== */
+.workspace-leaf-content[data-type="graph"] {
+  background-color: var(--background-primary) !important;
+}
+
+.workspace-leaf-content[data-type="graph"] .view-content {
+  background-color: var(--background-primary) !important;
+}
+
+/* ==================== ПАНЕЛЬ КОНСПЕКТОВ ==================== */
+.workspace-leaf-content[data-type="daily-notes"] {
+  background-color: var(--background-primary-alt) !important;
+}
+
+.workspace-leaf-content[data-type="daily-notes"] .view-content {
+  background-color: var(--background-primary-alt) !important;
+}
+
+/* ==========================================================================
+   End of Part 2
+   ========================================================================== */
+   /* ==========================================================================
+   Part 3: Markdown Editor & Preview - Complete Version
+   ========================================================================== */
+
+/* ==================== ОСНОВНОЙ РЕДАКТОР MARKDOWN ==================== */
+.cm-editor {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  line-height: 1.6 !important;
+  padding: 20px !important;
+  min-height: 100% !important;
+}
+
+.cm-editor .cm-scroller {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  font-family: inherit !important;
+  line-height: inherit !important;
+  padding: 0 !important;
+  overflow-anchor: none !important;
+}
+
+.cm-editor .cm-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  padding: 20px 0 !important;
+  caret-color: var(--text-accent) !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+.cm-editor .cm-line {
+  background-color: transparent !important;
+  color: inherit !important;
+  padding: 2px 0 !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-lineWrapping {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.cm-editor .cm-active {
+  background-color: rgba(42, 26, 47, 0.3) !important;
+}
+
+.cm-editor .cm-activeLine {
+  background-color: rgba(42, 26, 47, 0.2) !important;
+}
+
+.cm-editor .cm-selectionBackground {
+  background-color: var(--text-selection) !important;
+}
+
+.cm-editor .cm-selectionMatch {
+  background-color: rgba(255, 107, 157, 0.2) !important;
+  border-radius: var(--radius-s) !important;
+}
+
+.cm-editor .cm-searchMatch {
+  background-color: rgba(255, 209, 107, 0.3) !important;
+  border-radius: var(--radius-s) !important;
+}
+
+.cm-editor .cm-searchMatch-selected {
+  background-color: rgba(255, 209, 107, 0.6) !important;
+  border: 1px solid var(--text-warning) !important;
+}
+
+.cm-editor .cm-cursor {
+  border-left: 2px solid var(--text-accent) !important;
+  border-right: none !important;
+  margin-left: -1px !important;
+  pointer-events: none !important;
+}
+
+.cm-editor .cm-cursor-secondary {
+  border-left: 1px solid var(--text-accent) !important;
+  opacity: 0.7 !important;
+}
+
+.cm-editor .cm-dropCursor {
+  border-left: 1px solid var(--interactive-accent) !important;
+}
+
+.cm-editor .cm-placeholder {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  font-style: italic !important;
+}
+
+.cm-editor .cm-gutters {
+  background-color: var(--background-primary-alt) !important;
+  border-right: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+}
+
+.cm-editor .cm-gutter {
+  background-color: inherit !important;
+  border-color: inherit !important;
+}
+
+.cm-editor .cm-lineNumbers .cm-gutterElement {
+  color: var(--text-muted) !important;
+  padding: 0 8px 0 4px !important;
+  min-width: 24px !important;
+  text-align: right !important;
+}
+
+.cm-editor .cm-foldGutter {
+  background-color: inherit !important;
+}
+
+.cm-editor .cm-foldPlaceholder {
+  background-color: var(--background-modifier-border) !important;
+  border: 1px solid var(--background-modifier-border-hover) !important;
+  color: var(--text-muted) !important;
+  border-radius: var(--radius-s) !important;
+  margin: 0 2px !important;
+}
+
+.cm-editor .cm-foldMarker {
+  color: var(--text-accent) !important;
+  font-size: 12px !important;
+  margin: 0 2px !important;
+}
+
+.cm-editor .cm-tooltip {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  box-shadow: var(--shadow-l) !important;
+  color: var(--text-normal) !important;
+  font-size: 14px !important;
+  max-width: 400px !important;
+  padding: 8px 12px !important;
+  z-index: 1000 !important;
+}
+
+.cm-editor .cm-tooltip-autocomplete {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  box-shadow: var(--shadow-l) !important;
+}
+
+.cm-editor .cm-completionLabel {
+  color: var(--text-normal) !important;
+  font-size: 14px !important;
+  padding: 4px 8px !important;
+}
+
+.cm-editor .cm-completionDetail {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+}
+
+.cm-editor .cm-completionIcon {
+  color: var(--text-muted) !important;
+  font-size: 14px !important;
+  padding: 4px 8px !important;
+}
+
+.cm-editor .cm-completionIcon-function::after {
+  content: "ƒ" !important;
+  color: var(--code-function) !important;
+}
+
+.cm-editor .cm-completionIcon-variable::after {
+  content: "𝑥" !important;
+  color: var(--code-variable) !important;
+}
+
+.cm-editor .cm-completionIcon-class::after {
+  content: "C" !important;
+  color: var(--code-keyword) !important;
+}
+
+.cm-editor .cm-completionIcon-interface::after {
+  content: "I" !important;
+  color: var(--code-keyword) !important;
+}
+
+.cm-editor .cm-completionIcon-namespace::after {
+  content: "NS" !important;
+  color: var(--code-keyword) !important;
+}
+
+.cm-editor .cm-completionIcon-keyword::after {
+  content: "K" !important;
+  color: var(--code-keyword) !important;
+}
+
+.cm-editor .cm-completionIcon-text::after {
+  content: "T" !important;
+  color: var(--text-normal) !important;
+}
+
+.cm-editor .cm-completionIcon:hover {
+  background-color: var(--interactive-hover) !important;
+}
+
+.cm-editor .cm-tooltip.cm-tooltip-below {
+  margin-top: 4px !important;
+}
+
+.cm-editor .cm-tooltip.cm-tooltip-above {
+  margin-bottom: 4px !important;
+}
+
+.cm-editor .cm-panel.cm-search {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  box-shadow: var(--shadow-l) !important;
+  padding: 12px !important;
+}
+
+.cm-editor .cm-panel.cm-search label {
+  color: var(--text-normal) !important;
+  font-size: 14px !important;
+  margin-right: 8px !important;
+}
+
+.cm-editor .cm-panel.cm-search input {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  color: var(--text-normal) !important;
+  padding: 4px 8px !important;
+}
+
+.cm-editor .cm-panel.cm-search button {
+  background-color: var(--interactive-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  color: var(--text-normal) !important;
+  padding: 4px 8px !important;
+  margin-left: 4px !important;
+}
+
+.cm-editor .cm-panel.cm-search button:hover {
+  background-color: var(--interactive-hover) !important;
+}
+
+.cm-editor .cm-panel.cm-search button:active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+/* ==================== ЗАГОЛОВКИ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-header-1 {
+  color: var(--h1-color) !important;
+  font-size: 2em !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin: 1.5em 0 0.5em 0 !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 2px solid var(--background-modifier-border) !important;
+  text-shadow: 0 0 10px rgba(255, 107, 157, 0.2) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.cm-editor .cm-header-2 {
+  color: var(--h2-color) !important;
+  font-size: 1.75em !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin: 1.3em 0 0.5em 0 !important;
+  padding-bottom: 0.2em !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.cm-editor .cm-header-3 {
+  color: var(--h3-color) !important;
+  font-size: 1.5em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1.2em 0 0.5em 0 !important;
+  letter-spacing: -0.005em !important;
+}
+
+.cm-editor .cm-header-4 {
+  color: var(--h4-color) !important;
+  font-size: 1.25em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1.1em 0 0.5em 0 !important;
+}
+
+.cm-editor .cm-header-5 {
+  color: var(--h5-color) !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1em 0 0.5em 0 !important;
+}
+
+.cm-editor .cm-header-6 {
+  color: var(--h6-color) !important;
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1em 0 0.5em 0 !important;
+  opacity: 0.9 !important;
+}
+
+.cm-editor .cm-formatting-header {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  font-weight: 400 !important;
+}
+
+.cm-editor .cm-formatting-header-1 {
+  color: var(--h1-color) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-formatting-header-2 {
+  color: var(--h2-color) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-formatting-header-3 {
+  color: var(--h3-color) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-formatting-header-4 {
+  color: var(--h4-color) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-formatting-header-5 {
+  color: var(--h5-color) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-formatting-header-6 {
+  color: var(--h6-color) !important;
+  opacity: 0.8 !important;
+}
+
+/* ==================== ССЫЛКИ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-link {
+  color: var(--link-color) !important;
+  text-decoration: none !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 107, 157, 0.3) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  cursor: pointer !important;
+}
+
+.cm-editor .cm-link:hover {
+  color: var(--link-color-hover) !important;
+  text-shadow: 0 0 8px rgba(255, 107, 157, 0.5) !important;
+  border-bottom-color: rgba(255, 107, 157, 0.6) !important;
+  background-color: rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 0 2px !important;
+  margin: 0 -2px !important;
+}
+
+.cm-editor .cm-url {
+  color: var(--text-muted) !important;
+  font-size: 0.9em !important;
+  opacity: 0.8 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+}
+
+.cm-editor .cm-url:hover {
+  color: var(--text-normal) !important;
+  opacity: 1 !important;
+}
+
+.cm-editor .cm-formatting-link {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  font-family: inherit !important;
+}
+
+.cm-editor .cm-formatting-link-string {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+}
+
+.cm-editor .cm-link.cm-formatting-link {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  border-bottom: none !important;
+  text-shadow: none !important;
+}
+
+.cm-editor .cm-link.cm-formatting-link:hover {
+  background-color: transparent !important;
+  color: var(--text-faint) !important;
+}
+
+/* ==================== ИЗОБРАЖЕНИЯ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-image {
+  color: var(--text-accent) !important;
+  font-style: italic !important;
+}
+
+.cm-editor .cm-formatting-image {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+}
+
+.cm-editor .cm-image-alt-text {
+  color: var(--text-muted) !important;
+  font-style: italic !important;
+}
+
+.cm-editor .cm-image-marker {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+}
+
+/* ==================== КОД В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-inline-code {
+  color: var(--code-normal) !important;
+  background-color: var(--code-background) !important;
+  border: 1px solid rgba(163, 238, 255, 0.2) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace !important;
+  font-size: 0.9em !important;
+  text-shadow: 0 0 5px rgba(163, 238, 255, 0.3) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.cm-editor .cm-inline-code.cm-formatting-code {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  padding: 0 !important;
+}
+
+.cm-editor .cm-codeMark {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+}
+
+.cm-editor .cm-codeBlock {
+  background-color: var(--code-background) !important;
+  border: 1px solid rgba(163, 238, 255, 0.1) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  overflow-x: auto !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line {
+  padding: 2px 4px !important;
+  margin: 0 !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line:first-child {
+  border-top-left-radius: var(--radius-m) !important;
+  border-top-right-radius: var(--radius-m) !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line:last-child {
+  border-bottom-left-radius: var(--radius-m) !important;
+  border-bottom-right-radius: var(--radius-m) !important;
+}
+
+/* ==================== ВЫДЕЛЕНИЕ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-highlight {
+  background-color: var(--text-highlight-bg) !important;
+  color: inherit !important;
+  padding: 1px 2px !important;
+  border-radius: var(--radius-s) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px rgba(199, 36, 74, 0.3) !important;
+}
+
+.cm-editor .cm-formatting-highlight {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  font-weight: normal !important;
+}
+
+/* ==================== СПИСКИ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-list-1 {
+  padding-left: 1.5em !important;
+  margin: 0.5em 0 !important;
+}
+
+.cm-editor .cm-list-2 {
+  padding-left: 3em !important;
+  margin: 0.5em 0 !important;
+}
+
+.cm-editor .cm-list-3 {
+  padding-left: 4.5em !important;
+  margin: 0.5em 0 !important;
+}
+
+.cm-editor .cm-list-4 {
+  padding-left: 6em !important;
+  margin: 0.5em 0 !important;
+}
+
+.cm-editor .cm-list-5 {
+  padding-left: 7.5em !important;
+  margin: 0.5em 0 !important;
+}
+
+.cm-editor .cm-formatting-list {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-right: 4px !important;
+}
+
+.cm-editor .cm-formatting-list-ol {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-right: 4px !important;
+}
+
+.cm-editor .cm-formatting-list-ul {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-right: 4px !important;
+}
+
+.cm-editor .cm-list-1.cm-line {
+  padding-left: 0 !important;
+}
+
+.cm-editor .cm-list-2.cm-line {
+  padding-left: 0 !important;
+}
+
+.cm-editor .cm-list-3.cm-line {
+  padding-left: 0 !important;
+}
+
+.cm-editor .cm-tab {
+  background-color: transparent !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-tab::after {
+  content: "→" !important;
+  color: var(--text-faint) !important;
+  opacity: 0.5 !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 12px !important;
+}
+
+/* ==================== ЦИТАТЫ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-quote {
+  color: var(--text-muted) !important;
+  border-left: 4px solid var(--quote-opening-modifier) !important;
+  background-color: var(--quote-background) !important;
+  padding: 8px 16px 8px 20px !important;
+  margin: 16px 0 !important;
+  border-radius: 0 var(--radius-m) var(--radius-m) 0 !important;
+  font-style: italic !important;
+  line-height: 1.6 !important;
+}
+
+.cm-editor .cm-quote.cm-line {
+  padding: 2px 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+.cm-editor .cm-formatting-quote {
+  color: var(--text-accent) !important;
+  opacity: 0.8 !important;
+  font-weight: 600 !important;
+  margin-right: 4px !important;
+}
+
+.cm-editor .cm-blockQuoteBoundary {
+  color: var(--text-faint) !important;
+  opacity: 0.5 !important;
+}
+
+/* ==================== ЖИРНЫЙ И КУРСИВ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-strong {
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 3px rgba(255, 107, 157, 0.3) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.cm-editor .cm-em {
+  color: var(--text-warning) !important;
+  font-style: italic !important;
+  opacity: 0.9 !important;
+  font-weight: 500 !important;
+}
+
+.cm-editor .cm-formatting-strong {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+}
+
+.cm-editor .cm-formatting-em {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* ==================== ЗАЧЕРКИВАНИЕ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-strikethrough {
+  color: var(--text-faint) !important;
+  text-decoration: line-through !important;
+  opacity: 0.8 !important;
+  font-style: italic !important;
+}
+
+.cm-editor .cm-formatting-strikethrough {
+  color: var(--text-faint) !important;
+  opacity: 0.6 !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+}
+
+/* ==================== ТАБЛИЦЫ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-table-widget {
+  border: 1px solid var(--table-border-color) !important;
+  border-radius: var(--radius-m) !important;
+  overflow: hidden !important;
+  margin: 16px 0 !important;
+  background-color: var(--table-background) !important;
+}
+
+.cm-editor .cm-table-header {
+  background-color: var(--table-header-background) !important;
+  color: var(--table-header-color) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--table-border-color) !important;
+  padding: 8px 12px !important;
+  text-align: left !important;
+}
+
+.cm-editor .cm-table-row {
+  background-color: var(--table-row-background) !important;
+  border-bottom: 1px solid var(--table-border-color) !important;
+  transition: background-color var(--anim-duration-fast) ease !important;
+}
+
+.cm-editor .cm-table-row:hover {
+  background-color: var(--table-row-background-hover) !important;
+}
+
+.cm-editor .cm-table-row:nth-child(even) {
+  background-color: var(--table-row-alt-background) !important;
+}
+
+.cm-editor .cm-table-row:nth-child(even):hover {
+  background-color: var(--table-row-background-hover) !important;
+}
+
+.cm-editor .cm-table-cell {
+  padding: 8px 12px !important;
+  border-right: 1px solid var(--table-border-color) !important;
+  min-width: 60px !important;
+}
+
+.cm-editor .cm-table-cell:last-child {
+  border-right: none !important;
+}
+
+.cm-editor .cm-table-sep {
+  border-color: var(--table-border-color) !important;
+  background-color: var(--table-header-background) !important;
+}
+
+.cm-editor .cm-table-header.cm-table-sep {
+  background-color: var(--table-header-background) !important;
+}
+
+.cm-editor .cm-table-widget .cm-line {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ==================== HTML ТЕГИ В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-tag {
+  color: var(--code-tag) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+}
+
+.cm-editor .cm-attribute {
+  color: var(--code-property) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+}
+
+.cm-editor .cm-string {
+  color: var(--code-string) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+}
+
+.cm-editor .cm-meta {
+  color: var(--code-comment) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-bracket {
+  color: var(--code-punctuation) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+}
+
+.cm-editor .cm-comment {
+  color: var(--code-comment) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+  font-style: italic !important;
+  opacity: 0.8 !important;
+}
+
+/* ==================== MATH (LATEX) В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-math {
+  color: var(--code-number) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+  font-style: italic !important;
+}
+
+.cm-editor .cm-math.cm-formatting-math {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  font-style: normal !important;
+}
+
+.cm-editor .cm-inline-math {
+  color: var(--code-number) !important;
+  background-color: rgba(157, 78, 221, 0.1) !important;
+  border: 1px solid rgba(157, 78, 221, 0.2) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 4px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+}
+
+/* ==================== FOOTNOTES В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-footref {
+  color: var(--text-accent) !important;
+  font-size: 0.8em !important;
+  vertical-align: super !important;
+  background-color: rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 1px 3px !important;
+  margin: 0 1px !important;
+}
+
+.cm-editor .cm-formatting-footref {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ==================== HR (HORIZONTAL RULE) В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-hr {
+  color: var(--text-accent) !important;
+  text-align: center !important;
+  margin: 24px 0 !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-hr::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--text-accent) 20%, 
+    var(--text-accent) 80%, 
+    transparent 100%) !important;
+  z-index: 1 !important;
+}
+
+.cm-editor .cm-formatting-hr {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  position: relative !important;
+  z-index: 2 !important;
+  background-color: var(--background-primary) !important;
+  padding: 0 8px !important;
+}
+
+/* ==================== FRONTMATTER В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-frontmatter {
+  background-color: rgba(42, 26, 47, 0.5) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 14px !important;
+}
+
+.cm-editor .cm-frontmatter.cm-line {
+  padding: 2px 4px !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+.cm-editor .cm-frontmatter.cm-line:first-child {
+  border-top-left-radius: var(--radius-m) !important;
+  border-top-right-radius: var(--radius-m) !important;
+}
+
+.cm-editor .cm-frontmatter.cm-line:last-child {
+  border-bottom-left-radius: var(--radius-m) !important;
+  border-bottom-right-radius: var(--radius-m) !important;
+}
+
+.cm-editor .cm-frontmatter.cm-meta {
+  color: var(--code-comment) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-frontmatter.cm-string {
+  color: var(--code-string) !important;
+}
+
+.cm-editor .cm-frontmatter.cm-atom {
+  color: var(--code-number) !important;
+}
+
+.cm-editor .cm-frontmatter.cm-number {
+  color: var(--code-number) !important;
+}
+
+.cm-editor .cm-frontmatter.cm-keyword {
+  color: var(--code-keyword) !important;
+}
+
+.cm-editor .cm-frontmatter.cm-def {
+  color: var(--code-function) !important;
+}
+
+/* ==================== EMBEDS В РЕДАКТОРЕ ==================== */
+.cm-editor .cm-embed {
+  background-color: rgba(42, 26, 47, 0.3) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 12px !important;
+  margin: 16px 0 !important;
+}
+
+.cm-editor .cm-embed.cm-line {
+  padding: 2px 4px !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+.cm-editor .cm-embed-markdown {
+  font-style: italic !important;
+  color: var(--text-muted) !important;
+}
+
+/* ==================== ПРОСМОТР MARKDOWN ==================== */
+.markdown-preview-view {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  line-height: 1.6 !important;
+  padding: 20px !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  min-height: 100% !important;
+}
+
+.markdown-preview-view .markdown-preview-section {
+  background-color: transparent !important;
+  color: inherit !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.markdown-preview-view .markdown-preview-sizer {
+  background-color: transparent !important;
+  color: inherit !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding-bottom: 100px !important;
+}
+
+/* ==================== ЗАГОЛОВКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view h1 {
+  color: var(--h1-color) !important;
+  font-size: 2.2em !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin: 1.5em 0 0.5em 0 !important;
+  padding-bottom: 0.3em !important;
+  border-bottom: 2px solid var(--background-modifier-border) !important;
+  text-shadow: 0 0 10px rgba(255, 107, 157, 0.2) !important;
+  letter-spacing: -0.02em !important;
+  scroll-margin-top: 80px !important;
+}
+
+.markdown-preview-view h2 {
+  color: var(--h2-color) !important;
+  font-size: 1.8em !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  margin: 1.3em 0 0.5em 0 !important;
+  padding-bottom: 0.2em !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  letter-spacing: -0.01em !important;
+  scroll-margin-top: 80px !important;
+}
+
+.markdown-preview-view h3 {
+  color: var(--h3-color) !important;
+  font-size: 1.5em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1.2em 0 0.5em 0 !important;
+  letter-spacing: -0.005em !important;
+  scroll-margin-top: 80px !important;
+}
+
+.markdown-preview-view h4 {
+  color: var(--h4-color) !important;
+  font-size: 1.3em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1.1em 0 0.5em 0 !important;
+  scroll-margin-top: 80px !important;
+}
+
+.markdown-preview-view h5 {
+  color: var(--h5-color) !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1em 0 0.5em 0 !important;
+  scroll-margin-top: 80px !important;
+}
+
+.markdown-preview-view h6 {
+  color: var(--h6-color) !important;
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin: 1em 0 0.5em 0 !important;
+  opacity: 0.9 !important;
+  scroll-margin-top: 80px !important;
+}
+
+.markdown-preview-view h1:first-child,
+.markdown-preview-view h2:first-child,
+.markdown-preview-view h3:first-child,
+.markdown-preview-view h4:first-child,
+.markdown-preview-view h5:first-child,
+.markdown-preview-view h6:first-child {
+  margin-top: 0 !important;
+}
+
+/* ==================== ПАРАГРАФЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view p {
+  margin: 1em 0 !important;
+  line-height: 1.7 !important;
+  text-align: justify !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.markdown-preview-view p:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-preview-view p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-preview-view br {
+  content: "" !important;
+  display: block !important;
+  margin: 0.5em 0 !important;
+  line-height: 0.5 !important;
+}
+
+/* ==================== ССЫЛКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .internal-link {
+  color: var(--link-color) !important;
+  text-decoration: none !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 107, 157, 0.3) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  cursor: pointer !important;
+  padding: 0 1px !important;
+  margin: 0 -1px !important;
+}
+
+.markdown-preview-view .internal-link:hover {
+  color: var(--link-color-hover) !important;
+  text-shadow: 0 0 8px rgba(255, 107, 157, 0.5) !important;
+  border-bottom-color: rgba(255, 107, 157, 0.6) !important;
+  background-color: rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 0 2px !important;
+  margin: 0 -2px !important;
+}
+
+.markdown-preview-view .external-link {
+  color: var(--link-external-color) !important;
+  text-decoration: none !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.3) !important;
+  border-bottom: 1px solid rgba(255, 107, 157, 0.3) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  cursor: pointer !important;
+  padding: 0 1px !important;
+  margin: 0 -1px !important;
+}
+
+.markdown-preview-view .external-link:hover {
+  color: var(--link-external-color-hover) !important;
+  text-shadow: 0 0 8px rgba(255, 107, 157, 0.5) !important;
+  border-bottom-color: rgba(255, 107, 157, 0.6) !important;
+  background-color: rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 0 2px !important;
+  margin: 0 -2px !important;
+}
+
+.markdown-preview-view .file-embed {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 12px !important;
+  margin: 16px 0 !important;
+}
+
+.markdown-preview-view .file-embed-title {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+.markdown-preview-view .file-embed-content {
+  color: var(--text-normal) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* ==================== ИЗОБРАЖЕНИЯ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: var(--radius-m) !important;
+  box-shadow: var(--shadow-m) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view img:hover {
+  box-shadow: var(--shadow-l) !important;
+  border-color: var(--text-accent) !important;
+  transform: scale(1.02) !important;
+}
+
+.markdown-preview-view .image-embed {
+  margin: 16px 0 !important;
+  text-align: center !important;
+}
+
+.markdown-preview-view .image-embed img {
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+
+.markdown-preview-view .image-embed .caption {
+  color: var(--text-muted) !important;
+  font-size: 0.9em !important;
+  font-style: italic !important;
+  margin-top: 8px !important;
+  text-align: center !important;
+}
+
+/* ==================== СПИСКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view ul {
+  margin: 1em 0 !important;
+  padding-left: 2em !important;
+  list-style-type: disc !important;
+}
+
+.markdown-preview-view ol {
+  margin: 1em 0 !important;
+  padding-left: 2em !important;
+  list-style-type: decimal !important;
+}
+
+.markdown-preview-view li {
+  margin: 0.5em 0 !important;
+  line-height: 1.6 !important;
+  padding-left: 0.5em !important;
+}
+
+.markdown-preview-view li > p {
+  margin: 0.5em 0 !important;
+}
+
+.markdown-preview-view li > ul,
+.markdown-preview-view li > ol {
+  margin: 0.5em 0 !important;
+}
+
+.markdown-preview-view ul ul {
+  list-style-type: circle !important;
+}
+
+.markdown-preview-view ul ul ul {
+  list-style-type: square !important;
+}
+
+.markdown-preview-view ol ol {
+  list-style-type: lower-alpha !important;
+}
+
+.markdown-preview-view ol ol ol {
+  list-style-type: lower-roman !important;
+}
+
+.markdown-preview-view .list-bullet {
+  color: var(--text-accent) !important;
+  margin-right: 4px !important;
+}
+
+.markdown-preview-view .task-list-item {
+  list-style-type: none !important;
+  margin-left: -1.5em !important;
+}
+
+.markdown-preview-view .task-list-item-checkbox {
+  margin-right: 8px !important;
+  color: var(--text-accent) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  background-color: var(--background-modifier-form-field) !important;
+  width: 16px !important;
+  height: 16px !important;
+  position: relative !important;
+  top: 2px !important;
+}
+
+.markdown-preview-view .task-list-item-checkbox:checked {
+  background-color: var(--interactive-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.markdown-preview-view .task-list-item-checkbox:checked::before {
+  content: "✓" !important;
+  color: var(--text-on-accent) !important;
+  font-size: 12px !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* ==================== ЦИТАТЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view blockquote {
+  color: var(--text-muted) !important;
+  border-left: 4px solid var(--quote-opening-modifier) !important;
+  background-color: var(--quote-background) !important;
+  padding: 12px 20px 12px 24px !important;
+  margin: 16px 0 !important;
+  border-radius: 0 var(--radius-m) var(--radius-m) 0 !important;
+  font-style: italic !important;
+  line-height: 1.6 !important;
+  position: relative !important;
+}
+
+.markdown-preview-view blockquote::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background: linear-gradient(to bottom, 
+    var(--quote-opening-modifier) 0%, 
+    var(--text-accent) 50%, 
+    var(--quote-opening-modifier) 100%) !important;
+  border-radius: 2px !important;
+}
+
+.markdown-preview-view blockquote p {
+  margin: 0.5em 0 !important;
+}
+
+.markdown-preview-view blockquote p:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-preview-view blockquote p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-preview-view blockquote ul,
+.markdown-preview-view blockquote ol {
+  margin: 0.5em 0 !important;
+}
+
+/* ==================== КОД В ПРОСМОТРЕ ==================== */
+.markdown-preview-view code {
+  color: var(--code-normal) !important;
+  background-color: var(--code-background) !important;
+  border: 1px solid rgba(163, 238, 255, 0.2) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace !important;
+  font-size: 0.9em !important;
+  text-shadow: 0 0 5px rgba(163, 238, 255, 0.3) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.markdown-preview-view pre {
+  background-color: var(--code-background) !important;
+  border: 1px solid rgba(163, 238, 255, 0.1) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  overflow-x: auto !important;
+  box-shadow: var(--shadow-m) !important;
+}
+
+.markdown-preview-view pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  white-space: pre !important;
+}
+
+.markdown-preview-view .code-block-flair {
+  background-color: var(--background-primary-alt) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+  font-size: 0.8em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+}
+
+.markdown-preview-view .code-block-flair:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+/* ==================== ВЫДЕЛЕНИЕ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view mark {
+  background-color: var(--text-highlight-bg) !important;
+  color: inherit !important;
+  padding: 1px 2px !important;
+  border-radius: var(--radius-s) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px rgba(199, 36, 74, 0.3) !important;
+}
+
+.markdown-preview-view .search-highlight {
+  background-color: rgba(255, 209, 107, 0.3) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 1px 2px !important;
+}
+
+.markdown-preview-view .search-highlight-current {
+  background-color: rgba(255, 209, 107, 0.6) !important;
+  border: 1px solid var(--text-warning) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 1px 2px !important;
+}
+
+/* ==================== ТАБЛИЦЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view table {
+  border: 1px solid var(--table-border-color) !important;
+  border-radius: var(--radius-m) !important;
+  overflow: hidden !important;
+  margin: 16px 0 !important;
+  background-color: var(--table-background) !important;
+  box-shadow: var(--shadow-s) !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+.markdown-preview-view th {
+  background-color: var(--table-header-background) !important;
+  color: var(--table-header-color) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--table-border-color) !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+  position: relative !important;
+}
+
+.markdown-preview-view th::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--text-accent) 50%, 
+    transparent 100%) !important;
+}
+
+.markdown-preview-view td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--table-border-color) !important;
+  border-right: 1px solid var(--table-border-color) !important;
+  transition: background-color var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view td:last-child {
+  border-right: none !important;
+}
+
+.markdown-preview-view tr {
+  background-color: var(--table-row-background) !important;
+  transition: background-color var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view tr:hover {
+  background-color: var(--table-row-background-hover) !important;
+}
+
+.markdown-preview-view tr:nth-child(even) {
+  background-color: var(--table-row-alt-background) !important;
+}
+
+.markdown-preview-view tr:nth-child(even):hover {
+  background-color: var(--table-row-background-hover) !important;
+}
+
+.markdown-preview-view tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ==================== HR (HORIZONTAL RULE) В ПРОСМОТРЕ ==================== */
+.markdown-preview-view hr {
+  border: none !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--text-accent) 20%, 
+    var(--text-accent) 80%, 
+    transparent 100%) !important;
+  margin: 32px 0 !important;
+  position: relative !important;
+}
+
+.markdown-preview-view hr::before {
+  content: "❖" !important;
+  color: var(--text-accent) !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background-color: var(--background-primary) !important;
+  padding: 0 12px !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.5) !important;
+}
+
+/* ==================== FOOTNOTES В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .footnote-ref {
+  color: var(--text-accent) !important;
+  font-size: 0.8em !important;
+  vertical-align: super !important;
+  background-color: rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 1px 4px !important;
+  margin: 0 2px !important;
+  text-decoration: none !important;
+}
+
+.markdown-preview-view .footnote-ref:hover {
+  background-color: rgba(255, 107, 157, 0.2) !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.5) !important;
+}
+
+.markdown-preview-view .footnotes {
+  margin-top: 32px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+}
+
+.markdown-preview-view .footnotes-list {
+  padding-left: 2em !important;
+  margin: 8px 0 !important;
+}
+
+.markdown-preview-view .footnote-item {
+  margin: 8px 0 !important;
+  line-height: 1.5 !important;
+}
+
+.markdown-preview-view .footnote-backref {
+  color: var(--text-accent) !important;
+  text-decoration: none !important;
+  margin-left: 4px !important;
+}
+
+.markdown-preview-view .footnote-backref:hover {
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.5) !important;
+}
+
+/* ==================== MATH (LATEX) В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .math {
+  color: var(--code-number) !important;
+  background-color: rgba(157, 78, 221, 0.1) !important;
+  border: 1px solid rgba(157, 78, 221, 0.2) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 4px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.9em !important;
+}
+
+.markdown-preview-view .math-block {
+  background-color: rgba(157, 78, 221, 0.05) !important;
+  border: 1px solid rgba(157, 78, 221, 0.1) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  text-align: center !important;
+}
+
+.markdown-preview-view .math-inline {
+  display: inline !important;
+}
+
+/* ==================== FRONTMATTER В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .frontmatter {
+  background-color: rgba(42, 26, 47, 0.5) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 14px !important;
+}
+
+.markdown-preview-view .frontmatter-container {
+  background-color: transparent !important;
+}
+
+.markdown-preview-view .frontmatter-section {
+  margin: 8px 0 !important;
+}
+
+.markdown-preview-view .frontmatter-section-label {
+  color: var(--code-keyword) !important;
+  font-weight: 600 !important;
+  margin-right: 8px !important;
+}
+
+.markdown-preview-view .frontmatter-section-data {
+  color: var(--code-string) !important;
+}
+
+.markdown-preview-view .frontmatter-collapse-indicator {
+  color: var(--text-muted) !important;
+  opacity: 0.7 !important;
+  margin-right: 4px !important;
+}
+
+/* ==================== EMBEDS В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .internal-embed {
+  background-color: rgba(42, 26, 47, 0.3) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 12px !important;
+  margin: 16px 0 !important;
+}
+
+.markdown-preview-view .embed-stub {
+  color: var(--text-muted) !important;
+  font-style: italic !important;
+}
+
+.markdown-preview-view .embed-content {
+  color: var(--text-normal) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.markdown-preview-view .embed-title {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+/* ==================== CALL-OUTS (ВЫДЕЛЕННЫЕ БЛОКИ) В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .callout {
+  background-color: rgba(42, 26, 47, 0.4) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-l) !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  position: relative !important;
+  box-shadow: var(--shadow-m) !important;
+}
+
+.markdown-preview-view .callout::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background: linear-gradient(to bottom, 
+    var(--text-accent) 0%, 
+    var(--text-warning) 50%, 
+    var(--code-normal) 100%) !important;
+  border-top-left-radius: var(--radius-l) !important;
+  border-bottom-left-radius: var(--radius-l) !important;
+}
+
+.markdown-preview-view .callout-title {
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  font-size: 1.1em !important;
+  margin-bottom: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.markdown-preview-view .callout-icon {
+  color: var(--text-accent) !important;
+  font-size: 1.2em !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.markdown-preview-view .callout-content {
+  color: var(--text-normal) !important;
+  line-height: 1.6 !important;
+}
+
+.markdown-preview-view .callout-content > *:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-preview-view .callout-content > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Типы callouts */
+.markdown-preview-view .callout[data-callout="note"] {
+  border-left-color: var(--text-accent) !important;
+}
+
+.markdown-preview-view .callout[data-callout="note"] .callout-title {
+  color: var(--text-accent) !important;
+}
+
+.markdown-preview-view .callout[data-callout="warning"] {
+  border-left-color: var(--text-warning) !important;
+}
+
+.markdown-preview-view .callout[data-callout="warning"] .callout-title {
+  color: var(--text-warning) !important;
+}
+
+.markdown-preview-view .callout[data-callout="important"] {
+  border-left-color: var(--text-error) !important;
+}
+
+.markdown-preview-view .callout[data-callout="important"] .callout-title {
+  color: var(--text-error) !important;
+}
+
+.markdown-preview-view .callout[data-callout="tip"] {
+  border-left-color: var(--text-success) !important;
+}
+
+.markdown-preview-view .callout[data-callout="tip"] .callout-title {
+  color: var(--text-success) !important;
+}
+
+.markdown-preview-view .callout[data-callout="question"] {
+  border-left-color: var(--code-normal) !important;
+}
+
+.markdown-preview-view .callout[data-callout="question"] .callout-title {
+  color: var(--code-normal) !important;
+}
+
+/* ==================== ДИАГРАММЫ И ГРАФИКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .mermaid {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  text-align: center !important;
+  box-shadow: var(--shadow-s) !important;
+}
+
+.markdown-preview-view .mermaid svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* ==================== КНОПКИ И ИНТЕРАКТИВНЫЕ ЭЛЕМЕНТЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .button {
+  background-color: var(--interactive-normal) !important;
+  color: var(--text-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 8px 16px !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  cursor: pointer !important;
+  text-align: center !important;
+}
+
+.markdown-preview-view .button:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-m) !important;
+}
+
+.markdown-preview-view .button:active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  transform: translateY(0) !important;
+}
+
+.markdown-preview-view .button-primary {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.markdown-preview-view .button-primary:hover {
+  background-color: var(--interactive-accent-hover) !important;
+  border-color: var(--interactive-accent-hover) !important;
+}
+
+/* ==================== СПОЙЛЕРЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .spoiler {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+  position: relative !important;
+}
+
+.markdown-preview-view .spoiler-title {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.markdown-preview-view .spoiler-title::before {
+  content: "▶" !important;
+  font-size: 0.8em !important;
+  transition: transform var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view .spoiler.open .spoiler-title::before {
+  transform: rotate(90deg) !important;
+}
+
+.markdown-preview-view .spoiler-content {
+  color: var(--text-normal) !important;
+  line-height: 1.6 !important;
+  display: none !important;
+}
+
+.markdown-preview-view .spoiler.open .spoiler-content {
+  display: block !important;
+}
+
+/* ==================== ПРОГРЕСС-БАРЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .progress-bar {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-l) !important;
+  height: 8px !important;
+  margin: 16px 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.markdown-preview-view .progress-bar-fill {
+  background: linear-gradient(90deg, 
+    var(--text-accent) 0%, 
+    var(--text-warning) 50%, 
+    var(--code-normal) 100%) !important;
+  height: 100% !important;
+  border-radius: var(--radius-l) !important;
+  transition: width var(--anim-duration-slow) ease !important;
+  position: relative !important;
+}
+
+.markdown-preview-view .progress-bar-fill::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%) !important;
+  animation: progress-shine 2s ease-in-out infinite !important;
+}
+
+@keyframes progress-shine {
+  0% {
+    transform: translateX(-100%) !important;
+  }
+  100% {
+    transform: translateX(100%) !important;
+  }
+}
+
+/* ==================== БАДЖИ И МЕТКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .badge {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+  font-size: 0.7em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  vertical-align: middle !important;
+}
+
+.markdown-preview-view .badge-success {
+  background-color: var(--interactive-success) !important;
+}
+
+.markdown-preview-view .badge-warning {
+  background-color: var(--interactive-warning) !important;
+}
+
+.markdown-preview-view .badge-error {
+  background-color: var(--interactive-danger) !important;
+}
+
+.markdown-preview-view .badge-info {
+  background-color: var(--interactive-normal) !important;
+}
+
+/* ==================== КАРТОЧКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .card {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-l) !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  box-shadow: var(--shadow-m) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view .card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-l) !important;
+  border-color: var(--text-accent) !important;
+}
+
+.markdown-preview-view .card-header {
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  font-size: 1.2em !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding-bottom: 8px !important;
+}
+
+.markdown-preview-view .card-content {
+  color: var(--text-normal) !important;
+  line-height: 1.6 !important;
+}
+
+.markdown-preview-view .card-footer {
+  margin-top: 16px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-muted) !important;
+  font-size: 0.9em !important;
+}
+
+/* ==================== СЕТКИ И КОЛОНКИ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 20px !important;
+  margin: 20px 0 !important;
+}
+
+.markdown-preview-view .grid-2 {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.markdown-preview-view .grid-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.markdown-preview-view .grid-4 {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+.markdown-preview-view .grid-item {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view .grid-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-m) !important;
+  border-color: var(--text-accent) !important;
+}
+
+/* ==================== АККОРДЕОНЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .accordion {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  margin: 16px 0 !important;
+  overflow: hidden !important;
+}
+
+.markdown-preview-view .accordion-item {
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.markdown-preview-view .accordion-item:last-child {
+  border-bottom: none !important;
+}
+
+.markdown-preview-view .accordion-header {
+  background-color: var(--background-primary-alt) !important;
+  color: var(--text-normal) !important;
+  padding: 16px 20px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view .accordion-header:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-accent) !important;
+}
+
+.markdown-preview-view .accordion-header::after {
+  content: "▶" !important;
+  font-size: 0.8em !important;
+  transition: transform var(--anim-duration-fast) ease !important;
+  color: var(--text-muted) !important;
+}
+
+.markdown-preview-view .accordion-item.open .accordion-header::after {
+  transform: rotate(90deg) !important;
+  color: var(--text-accent) !important;
+}
+
+.markdown-preview-view .accordion-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  padding: 0 20px !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: all var(--anim-duration-normal) ease !important;
+}
+
+.markdown-preview-view .accordion-item.open .accordion-content {
+  padding: 16px 20px !important;
+  max-height: 1000px !important;
+}
+
+/* ==================== ТОСТЫ И УВЕДОМЛЕНИЯ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .toast {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 12px 16px !important;
+  margin: 12px 0 !important;
+  box-shadow: var(--shadow-l) !important;
+  position: relative !important;
+  border-left: 4px solid var(--text-accent) !important;
+}
+
+.markdown-preview-view .toast-success {
+  border-left-color: var(--text-success) !important;
+}
+
+.markdown-preview-view .toast-warning {
+  border-left-color: var(--text-warning) !important;
+}
+
+.markdown-preview-view .toast-error {
+  border-left-color: var(--text-error) !important;
+}
+
+.markdown-preview-view .toast-info {
+  border-left-color: var(--code-normal) !important;
+}
+
+.markdown-preview-view .toast-title {
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+  font-size: 1em !important;
+}
+
+.markdown-preview-view .toast-content {
+  color: var(--text-normal) !important;
+  font-size: 0.9em !important;
+  line-height: 1.4 !important;
+}
+
+/* ==================== ИКОНКИ И СИМВОЛЫ В ПРОСМОТРЕ ==================== */
+.markdown-preview-view .icon {
+  display: inline-block !important;
+  width: 1em !important;
+  height: 1em !important;
+  vertical-align: middle !important;
+  margin-right: 4px !important;
+}
+
+.markdown-preview-view .icon-success {
+  color: var(--text-success) !important;
+}
+
+.markdown-preview-view .icon-warning {
+  color: var(--text-warning) !important;
+}
+
+.markdown-preview-view .icon-error {
+  color: var(--text-error) !important;
+}
+
+.markdown-preview-view .icon-info {
+  color: var(--code-normal) !important;
+}
+
+.markdown-preview-view .icon-accent {
+  color: var(--text-accent) !important;
+}
+
+/* ==================== КАСТОМНЫЕ СТИЛИ ДЛЯ СПЕЦИФИЧЕСКИХ ПЛАГИНОВ ==================== */
+
+/* Dataview плагин */
+.markdown-preview-view .dataview {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+}
+
+.markdown-preview-view .dataview table {
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.markdown-preview-view .dataview-error {
+  background-color: rgba(255, 107, 107, 0.1) !important;
+  border: 1px solid var(--text-error) !important;
+  color: var(--text-error) !important;
+  padding: 12px !important;
+  border-radius: var(--radius-m) !important;
+  margin: 12px 0 !important;
+}
+
+/* Calendar плагин */
+.markdown-preview-view .calendar {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+}
+
+.markdown-preview-view .calendar-day {
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 8px !important;
+  text-align: center !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view .calendar-day:hover {
+  background-color: var(--interactive-hover) !important;
+  border-color: var(--text-accent) !important;
+}
+
+.markdown-preview-view .calendar-day.today {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+/* Kanban плагин */
+.markdown-preview-view .kanban {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+}
+
+.markdown-preview-view .kanban-board {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.markdown-preview-view .kanban-column {
+  background-color: var(--background-primary) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 12px !important;
+}
+
+.markdown-preview-view .kanban-column-header {
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.markdown-preview-view .kanban-item {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 8px !important;
+  margin-bottom: 8px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view .kanban-item:hover {
+  background-color: var(--interactive-hover) !important;
+  border-color: var(--text-accent) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ==================== АДАПТИВНОСТЬ И MOBILE СТИЛИ ==================== */
+@media (max-width: 768px) {
+  .markdown-preview-view {
+    padding: 16px !important;
+    font-size: 16px !important;
+  }
+  
+  .markdown-preview-view h1 {
+    font-size: 1.8em !important;
+  }
+  
+  .markdown-preview-view h2 {
+    font-size: 1.5em !important;
+  }
+  
+  .markdown-preview-view h3 {
+    font-size: 1.3em !important;
+  }
+  
+  .markdown-preview-view table {
+    font-size: 14px !important;
+  }
+  
+  .markdown-preview-view th,
+  .markdown-preview-view td {
+    padding: 8px 12px !important;
+  }
+  
+  .markdown-preview-view .grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .markdown-preview-view .grid-2,
+  .markdown-preview-view .grid-3,
+  .markdown-preview-view .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .markdown-preview-view pre {
+    padding: 12px !important;
+    font-size: 13px !important;
+  }
+  
+  .markdown-preview-view code {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .markdown-preview-view {
+    padding: 12px !important;
+    font-size: 15px !important;
+  }
+  
+  .markdown-preview-view h1 {
+    font-size: 1.6em !important;
+  }
+  
+  .markdown-preview-view h2 {
+    font-size: 1.4em !important;
+  }
+  
+  .markdown-preview-view h3 {
+    font-size: 1.2em !important;
+  }
+  
+  .markdown-preview-view blockquote {
+    padding: 12px 16px 12px 20px !important;
+    margin: 12px 0 !important;
+  }
+  
+  .markdown-preview-view .callout {
+    padding: 16px !important;
+    margin: 16px 0 !important;
+  }
+}
+
+/* ==================== ПЕЧАТНЫЕ СТИЛИ ==================== */
+@media print {
+  .markdown-preview-view {
+    background-color: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+  
+  .markdown-preview-view * {
+    color: black !important;
+    background-color: transparent !important;
+  }
+  
+  .markdown-preview-view a {
+    color: #0000EE !important;
+    text-decoration: underline !important;
+  }
+  
+  .markdown-preview-view code {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  .markdown-preview-view pre {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  .markdown-preview-view blockquote {
+    border-left-color: #666 !important;
+    background-color: #f9f9f9 !important;
+  }
+  
+  .markdown-preview-view table {
+    border-color: #666 !important;
+  }
+  
+  .markdown-preview-view th {
+    background-color: #eee !important;
+    border-color: #666 !important;
+  }
+  
+  .markdown-preview-view td {
+    border-color: #ddd !important;
+  }
+}
+
+/* ==========================================================================
+   End of Part 3 - Complete
+   ========================================================================== */
+/* ==========================================================================
+   Part 4: Tables, Code Blocks, Tags & Additional Elements - Complete Version
+   ========================================================================== */
+
+/* ==================== ТАБЛИЦЫ (УГЛУБЛЕННАЯ СТИЛИЗАЦИЯ) ==================== */
+
+/* Основные стили таблиц в редакторе */
+.cm-editor .cm-table-widget {
+  border: 1px solid var(--table-border-color) !important;
+  border-radius: var(--radius-m) !important;
+  overflow: hidden !important;
+  margin: 16px 0 !important;
+  background-color: var(--table-background) !important;
+  box-shadow: var(--shadow-s) !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-table-widget::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border: 1px solid rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-m) !important;
+  pointer-events: none !important;
+}
+
+.cm-editor .cm-table-header {
+  background-color: var(--table-header-background) !important;
+  color: var(--table-header-color) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--table-border-color) !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+  position: relative !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.cm-editor .cm-table-header::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--text-accent) 20%, 
+    var(--text-accent) 80%, 
+    transparent 100%) !important;
+  opacity: 0.7 !important;
+}
+
+.cm-editor .cm-table-row {
+  background-color: var(--table-row-background) !important;
+  border-bottom: 1px solid var(--table-border-color) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-table-row:hover {
+  background-color: var(--table-row-background-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  z-index: 1 !important;
+}
+
+.cm-editor .cm-table-row:nth-child(even) {
+  background-color: var(--table-row-alt-background) !important;
+}
+
+.cm-editor .cm-table-row:nth-child(even):hover {
+  background-color: var(--table-row-background-hover) !important;
+}
+
+.cm-editor .cm-table-cell {
+  padding: 12px 16px !important;
+  border-right: 1px solid var(--table-border-color) !important;
+  min-width: 60px !important;
+  line-height: 1.5 !important;
+  vertical-align: top !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-table-cell:last-child {
+  border-right: none !important;
+}
+
+.cm-editor .cm-table-cell::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 157, 0.05) 0%, 
+    transparent 50%, 
+    rgba(163, 238, 255, 0.05) 100%) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity var(--anim-duration-fast) ease !important;
+}
+
+.cm-editor .cm-table-cell:hover::before {
+  opacity: 1 !important;
+}
+
+.cm-editor .cm-table-sep {
+  border-color: var(--table-border-color) !important;
+  background-color: var(--table-header-background) !important;
+  position: relative !important;
+}
+
+.cm-editor .cm-table-header.cm-table-sep {
+  background-color: var(--table-header-background) !important;
+  font-weight: 700 !important;
+}
+
+.cm-editor .cm-table-widget .cm-line {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+}
+
+/* Стили для выравнивания в таблицах */
+.cm-editor .cm-table-cell[style*="text-align: center"] {
+  text-align: center !important;
+}
+
+.cm-editor .cm-table-cell[style*="text-align: right"] {
+  text-align: right !important;
+}
+
+.cm-editor .cm-table-cell[style*="text-align: left"] {
+  text-align: left !important;
+}
+
+/* Стили таблиц в просмотре */
+.markdown-preview-view table {
+  border: 1px solid var(--table-border-color) !important;
+  border-radius: var(--radius-m) !important;
+  overflow: hidden !important;
+  margin: 24px 0 !important;
+  background-color: var(--table-background) !important;
+  box-shadow: var(--shadow-m) !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  position: relative !important;
+}
+
+.markdown-preview-view table::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border: 1px solid rgba(255, 107, 157, 0.1) !important;
+  border-radius: var(--radius-m) !important;
+  pointer-events: none !important;
+}
+
+.markdown-preview-view th {
+  background-color: var(--table-header-background) !important;
+  color: var(--table-header-color) !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid var(--table-border-color) !important;
+  padding: 16px 20px !important;
+  text-align: left !important;
+  position: relative !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.markdown-preview-view th::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--text-accent) 20%, 
+    var(--text-accent) 80%, 
+    transparent 100%) !important;
+  opacity: 0.8 !important;
+}
+
+.markdown-preview-view th::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 157, 0.1) 0%, 
+    rgba(163, 238, 255, 0.05) 100%) !important;
+  pointer-events: none !important;
+}
+
+.markdown-preview-view td {
+  padding: 14px 20px !important;
+  border-bottom: 1px solid var(--table-border-color) !important;
+  border-right: 1px solid var(--table-border-color) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  line-height: 1.6 !important;
+  vertical-align: top !important;
+  position: relative !important;
+}
+
+.markdown-preview-view td:last-child {
+  border-right: none !important;
+}
+
+.markdown-preview-view td::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 157, 0.05) 0%, 
+    transparent 50%, 
+    rgba(163, 238, 255, 0.05) 100%) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity var(--anim-duration-fast) ease !important;
+}
+
+.markdown-preview-view td:hover::before {
+  opacity: 1 !important;
+}
+
+.markdown-preview-view tr {
+  background-color: var(--table-row-background) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  position: relative !important;
+}
+
+.markdown-preview-view tr:hover {
+  background-color: var(--table-row-background-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  z-index: 1 !important;
+}
+
+.markdown-preview-view tr:nth-child(even) {
+  background-color: var(--table-row-alt-background) !important;
+}
+
+.markdown-preview-view tr:nth-child(even):hover {
+  background-color: var(--table-row-background-hover) !important;
+}
+
+.markdown-preview-view tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Стили для выравнивания в таблицах просмотра */
+.markdown-preview-view td[align="center"],
+.markdown-preview-view th[align="center"] {
+  text-align: center !important;
+}
+
+.markdown-preview-view td[align="right"],
+.markdown-preview-view th[align="right"] {
+  text-align: right !important;
+}
+
+.markdown-preview-view td[align="left"],
+.markdown-preview-view th[align="left"] {
+  text-align: left !important;
+}
+
+.markdown-preview-view td[align="justify"],
+.markdown-preview-view th[align="justify"] {
+  text-align: justify !important;
+}
+
+/* ==================== БЛОКИ КОДА (ПОЛНАЯ СТИЛИЗАЦИЯ) ==================== */
+
+/* Блоки кода в редакторе */
+.cm-editor .cm-codeBlock {
+  background-color: var(--code-background) !important;
+  border: 1px solid rgba(163, 238, 255, 0.15) !important;
+  border-radius: var(--radius-l) !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  overflow-x: auto !important;
+  position: relative !important;
+  box-shadow: var(--shadow-m) !important;
+}
+
+.cm-editor .cm-codeBlock::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, 
+    #ff6b9d 0%, 
+    #a3eeff 50%, 
+    #9d4edd 100%) !important;
+  border-top-left-radius: var(--radius-l) !important;
+  border-top-right-radius: var(--radius-l) !important;
+  opacity: 0.7 !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line {
+  padding: 4px 8px !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line:first-child {
+  border-top-left-radius: var(--radius-l) !important;
+  border-top-right-radius: var(--radius-l) !important;
+  padding-top: 12px !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line:last-child {
+  border-bottom-left-radius: var(--radius-l) !important;
+  border-bottom-right-radius: var(--radius-l) !important;
+  padding-bottom: 12px !important;
+}
+
+.cm-editor .cm-codeBlock.cm-line:hover {
+  background-color: rgba(163, 238, 255, 0.05) !important;
+}
+
+/* Подсветка синтаксиса в редакторе */
+.cm-editor .cm-comment {
+  color: var(--code-comment) !important;
+  font-style: italic !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-keyword {
+  color: var(--code-keyword) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.3) !important;
+}
+
+.cm-editor .cm-string {
+  color: var(--code-string) !important;
+  text-shadow: 0 0 5px rgba(107, 255, 142, 0.3) !important;
+}
+
+.cm-editor .cm-string-2 {
+  color: var(--code-string) !important;
+  opacity: 0.9 !important;
+}
+
+.cm-editor .cm-number {
+  color: var(--code-number) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(157, 78, 221, 0.3) !important;
+}
+
+.cm-editor .cm-atom {
+  color: var(--code-number) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-variable {
+  color: var(--code-normal) !important;
+}
+
+.cm-editor .cm-variable-2 {
+  color: var(--code-normal) !important;
+  opacity: 0.9 !important;
+}
+
+.cm-editor .cm-variable-3 {
+  color: var(--code-normal) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-def {
+  color: var(--code-function) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-property {
+  color: var(--code-property) !important;
+  text-shadow: 0 0 5px rgba(107, 255, 142, 0.3) !important;
+}
+
+.cm-editor .cm-operator {
+  color: var(--code-operator) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-attribute {
+  color: var(--code-property) !important;
+}
+
+.cm-editor .cm-builtin {
+  color: var(--code-keyword) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-qualifier {
+  color: var(--code-normal) !important;
+  opacity: 0.9 !important;
+}
+
+.cm-editor .cm-type {
+  color: var(--code-keyword) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-tag {
+  color: var(--code-tag) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-bracket {
+  color: var(--code-punctuation) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-meta {
+  color: var(--code-comment) !important;
+  opacity: 0.8 !important;
+}
+
+.cm-editor .cm-header {
+  color: var(--code-keyword) !important;
+  font-weight: 600 !important;
+}
+
+.cm-editor .cm-quote {
+  color: var(--code-comment) !important;
+  font-style: italic !important;
+}
+
+.cm-editor .cm-hr {
+  color: var(--code-punctuation) !important;
+}
+
+.cm-editor .cm-link {
+  color: var(--code-string) !important;
+  text-decoration: underline !important;
+}
+
+.cm-editor .cm-error {
+  color: var(--text-error) !important;
+  background-color: rgba(255, 107, 107, 0.1) !important;
+  border-bottom: 1px solid var(--text-error) !important;
+}
+
+.cm-editor .cm-negative {
+  color: var(--text-error) !important;
+}
+
+.cm-editor .cm-positive {
+  color: var(--text-success) !important;
+}
+
+.cm-editor .cm-invalidchar {
+  color: var(--text-error) !important;
+  background-color: rgba(255, 107, 107, 0.2) !important;
+}
+
+/* Блоки кода в просмотре */
+.markdown-preview-view pre {
+  background-color: var(--code-background) !important;
+  border: 1px solid rgba(163, 238, 255, 0.15) !important;
+  border-radius: var(--radius-l) !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  overflow-x: auto !important;
+  position: relative !important;
+  box-shadow: var(--shadow-m) !important;
+}
+
+.markdown-preview-view pre::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, 
+    #ff6b9d 0%, 
+    #a3eeff 50%, 
+    #9d4edd 100%) !important;
+  border-top-left-radius: var(--radius-l) !important;
+  border-top-right-radius: var(--radius-l) !important;
+  opacity: 0.7 !important;
+}
+
+.markdown-preview-view pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  letter-spacing: -0.01em !important;
+  white-space: pre !important;
+  display: block !important;
+  color: var(--code-normal) !important;
+}
+
+.markdown-preview-view pre code .token.comment,
+.markdown-preview-view pre code .token.prolog,
+.markdown-preview-view pre code .token.doctype,
+.markdown-preview-view pre code .token.cdata {
+  color: var(--code-comment) !important;
+  font-style: italic !important;
+  opacity: 0.8 !important;
+}
+
+.markdown-preview-view pre code .token.punctuation {
+  color: var(--code-punctuation) !important;
+}
+
+.markdown-preview-view pre code .token.namespace {
+  color: var(--code-punctuation) !important;
+  opacity: 0.7 !important;
+}
+
+.markdown-preview-view pre code .token.property,
+.markdown-preview-view pre code .token.tag,
+.markdown-preview-view pre code .token.boolean,
+.markdown-preview-view pre code .token.number,
+.markdown-preview-view pre code .token.constant,
+.markdown-preview-view pre code .token.symbol,
+.markdown-preview-view pre code .token.deleted {
+  color: var(--code-number) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(157, 78, 221, 0.3) !important;
+}
+
+.markdown-preview-view pre code .token.selector,
+.markdown-preview-view pre code .token.attr-name,
+.markdown-preview-view pre code .token.string,
+.markdown-preview-view pre code .token.char,
+.markdown-preview-view pre code .token.builtin,
+.markdown-preview-view pre code .token.inserted {
+  color: var(--code-string) !important;
+  text-shadow: 0 0 5px rgba(107, 255, 142, 0.3) !important;
+}
+
+.markdown-preview-view pre code .token.operator,
+.markdown-preview-view pre code .token.entity,
+.markdown-preview-view pre code .token.url,
+.markdown-preview-view pre code .language-css .token.string,
+.markdown-preview-view pre code .style .token.string {
+  color: var(--code-operator) !important;
+  font-weight: 600 !important;
+}
+
+.markdown-preview-view pre code .token.atrule,
+.markdown-preview-view pre code .token.attr-value,
+.markdown-preview-view pre code .token.keyword {
+  color: var(--code-keyword) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.3) !important;
+}
+
+.markdown-preview-view pre code .token.function,
+.markdown-preview-view pre code .token.class-name {
+  color: var(--code-function) !important;
+  font-weight: 600 !important;
+}
+
+.markdown-preview-view pre code .token.regex,
+.markdown-preview-view pre code .token.important,
+.markdown-preview-view pre code .token.variable {
+  color: var(--code-normal) !important;
+}
+
+.markdown-preview-view pre code .token.important,
+.markdown-preview-view pre code .token.bold {
+  font-weight: 700 !important;
+}
+
+.markdown-preview-view pre code .token.italic {
+  font-style: italic !important;
+}
+
+.markdown-preview-view pre code .token.entity {
+  cursor: help !important;
+}
+
+/* Заголовки блоков кода */
+.markdown-preview-view .code-block-flair {
+  background-color: var(--background-primary-alt) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 4px 8px !important;
+  font-size: 0.8em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  position: absolute !important;
+  top: -10px !important;
+  right: 12px !important;
+  z-index: 2 !important;
+  box-shadow: var(--shadow-s) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 600 !important;
+}
+
+.markdown-preview-view .code-block-flair:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-m) !important;
+}
+
+.markdown-preview-view .code-block-title {
+  background-color: var(--background-primary-alt) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-bottom: none !important;
+  border-top-left-radius: var(--radius-m) !important;
+  border-top-right-radius: var(--radius-m) !important;
+  padding: 8px 12px !important;
+  font-size: 0.9em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.markdown-preview-view .code-block-title + pre {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Нумерация строк в блоках кода */
+.markdown-preview-view pre[class*="language-"].line-numbers {
+  padding-left: 3.8em !important;
+  counter-reset: linenumber !important;
+}
+
+.markdown-preview-view pre[class*="language-"].line-numbers > code {
+  position: relative !important;
+  white-space: inherit !important;
+}
+
+.markdown-preview-view .line-numbers .line-numbers-rows {
+  position: absolute !important;
+  pointer-events: none !important;
+  top: 0 !important;
+  font-size: 100% !important;
+  left: -3.8em !important;
+  width: 3em !important;
+  letter-spacing: -1px !important;
+  border-right: 1px solid var(--background-modifier-border) !important;
+  user-select: none !important;
+  background-color: var(--background-primary-alt) !important;
+  padding: 20px 0 !important;
+}
+
+.markdown-preview-view .line-numbers-rows > span {
+  counter-increment: linenumber !important;
+  display: block !important;
+  padding-right: 0.8em !important;
+  text-align: right !important;
+}
+
+.markdown-preview-view .line-numbers-rows > span::before {
+  content: counter(linenumber) !important;
+  color: var(--text-faint) !important;
+  display: block !important;
+  padding-right: 0.8em !important;
+  text-align: right !important;
+}
+
+/* ==================== ТЕГИ (ПОЛНАЯ СТИЛИЗАЦИЯ) ==================== */
+
+/* Теги в редакторе */
+.cm-editor .cm-hashtag {
+  color: var(--tag-color) !important;
+  background-color: var(--tag-background) !important;
+  border: 1px solid var(--tag-border-color) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 2px 8px !important;
+  margin: 0 2px !important;
+  text-decoration: none !important;
+  font-size: 0.85em !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.5) !important;
+  box-shadow: 0 0 5px rgba(255, 107, 157, 0.2) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  position: relative !important;
+  top: -1px !important;
+  cursor: pointer !important;
+}
+
+.cm-editor .cm-hashtag:hover {
+  background-color: var(--tag-background-hover) !important;
+  text-shadow: 0 0 8px rgba(255, 107, 157, 0.8) !important;
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.4), 
+              0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-1px) !important;
+  border-color: var(--tag-border-color-hover) !important;
+}
+
+.cm-editor .cm-hashtag.cm-formatting-hashtag {
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.cm-editor .cm-hashtag.cm-formatting-hashtag:hover {
+  background-color: transparent !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Теги в просмотре */
+.markdown-preview-view a.tag {
+  color: var(--tag-color) !important;
+  background-color: var(--tag-background) !important;
+  border: 1px solid var(--tag-border-color) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 4px 10px !important;
+  margin: 0 4px 4px 0 !important;
+  text-decoration: none !important;
+  font-size: 0.85em !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 5px rgba(255, 107, 157, 0.5) !important;
+  box-shadow: 0 0 5px rgba(255, 107, 157, 0.2), 
+              0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  display: inline-block !important;
+  position: relative !important;
+  cursor: pointer !important;
+  line-height: 1.2 !important;
+  text-transform: lowercase !important;
+}
+
+.markdown-preview-view a.tag:hover {
+  background-color: var(--tag-background-hover) !important;
+  text-shadow: 0 0 8px rgba(255, 107, 157, 0.8) !important;
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.4), 
+              0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-2px) !important;
+  border-color: var(--tag-border-color-hover) !important;
+}
+
+.markdown-preview-view a.tag::before {
+  content: "#" !important;
+  color: var(--text-faint) !important;
+  opacity: 0.7 !important;
+  margin-right: 2px !important;
+  font-weight: 400 !important;
+}
+
+/* Теги в навигации и боковых панелях */
+.nav-file-tag {
+  color: var(--tag-color) !important;
+  background-color: var(--tag-background) !important;
+  border: 1px solid var(--tag-border-color) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 1px 4px !important;
+  margin-left: 4px !important;
+  font-size: 0.7em !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 3px rgba(255, 107, 157, 0.5) !important;
+  box-shadow: 0 0 3px rgba(255, 107, 157, 0.2) !important;
+  vertical-align: middle !important;
+}
+
+/* Теги в панели тегов */
+.tag-pane-tag {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+  padding: 8px 12px !important;
+  border-radius: var(--radius-m) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border: 1px solid transparent !important;
+  margin: 2px 0 !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+.tag-pane-tag:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border) !important;
+  transform: translateX(4px) !important;
+}
+
+.tag-pane-tag.is-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+  transform: translateX(8px) !important;
+  box-shadow: 0 2px 8px rgba(199, 36, 74, 0.3) !important;
+}
+
+.tag-pane-tag-count {
+  color: var(--text-faint) !important;
+  background-color: var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+  font-size: 0.75em !important;
+  margin-left: 8px !important;
+  font-weight: 600 !important;
+  min-width: 24px !important;
+  text-align: center !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.tag-pane-tag:hover .tag-pane-tag-count {
+  background-color: var(--interactive-normal) !important;
+  color: var(--text-normal) !important;
+}
+
+.tag-pane-tag.is-active .tag-pane-tag-count {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--text-on-accent) !important;
+}
+
+/* Вложенные теги */
+.tag-pane-tag-children {
+  margin-left: 16px !important;
+  border-left: 1px solid var(--background-modifier-border) !important;
+  padding-left: 8px !important;
+}
+
+/* ==================== ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ==================== */
+
+/* Кнопки копирования кода */
+.markdown-preview-view .code-block-copy-button {
+  background-color: var(--interactive-normal) !important;
+  color: var(--text-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 4px 8px !important;
+  font-size: 0.8em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 3 !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  opacity: 0 !important;
+}
+
+.markdown-preview-view pre:hover .code-block-copy-button {
+  opacity: 1 !important;
+}
+
+.markdown-preview-view .code-block-copy-button:hover {
+  background-color: var(--interactive-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-s) !important;
+}
+
+.markdown-preview-view .code-block-copy-button:active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+.markdown-preview-view .code-block-copy-button.copied {
+  background-color: var(--interactive-success) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-success) !important;
+}
+
+/* Подсветка парных скобок */
+.cm-editor .cm-matchingBracket {
+  background-color: rgba(255, 107, 157, 0.2) !important;
+  border: 1px solid rgba(255, 107, 157, 0.5) !important;
+  border-radius: var(--radius-s) !important;
+  color: inherit !important;
+}
+
+.cm-editor .cm-nonmatchingBracket {
+  background-color: rgba(255, 107, 107, 0.2) !important;
+  border: 1px solid rgba(255, 107, 107, 0.5) !important;
+  border-radius: var(--radius-s) !important;
+  color: inherit !important;
+}
+
+/* Подсветка текущей строки поиска */
+.cm-editor .cm-searchMatch.line {
+  background-color: rgba(255, 209, 107, 0.3) !important;
+  border-radius: var(--radius-s) !important;
+}
+
+.cm-editor .cm-searchMatch.selected {
+  background-color: rgba(255, 209, 107, 0.6) !important;
+  border: 1px solid var(--text-warning) !important;
+  border-radius: var(--radius-s) !important;
+}
+
+/* Анимации для плавных переходов */
+.cm-editor .cm-line,
+.markdown-preview-view * {
+  transition: background-color var(--anim-duration-fast) ease,
+              color var(--anim-duration-fast) ease,
+              border-color var(--anim-duration-fast) ease,
+              box-shadow var(--anim-duration-fast) ease,
+              transform var(--anim-duration-fast) ease !important;
+}
+
+/* Кастомные классы для пользовательского CSS */
+.neon-glow {
+  text-shadow: 0 0 5px currentColor, 
+               0 0 10px currentColor,
+               0 0 15px currentColor !important;
+  animation: neon-pulse 2s ease-in-out infinite !important;
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px currentColor, 
+                 0 0 10px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 10px currentColor, 
+                 0 0 20px currentColor, 
+                 0 0 30px currentColor;
+  }
+}
+
+.glow-effect {
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.3),
+              0 0 20px rgba(255, 107, 157, 0.2),
+              0 0 30px rgba(255, 107, 157, 0.1) !important;
+}
+
+.pulse-effect {
+  animation: pulse 2s infinite !important;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 157, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 157, 0);
+  }
+}
+
+/* ==========================================================================
+   End of Part 4 - Complete
+   ========================================================================== */
+   /* ==========================================================================
+   Part 5: Modals, Plugins, Settings & Notifications - Complete Version
+   ========================================================================== */
+
+/* ==================== МОДАЛЬНЫЕ ОКНА И ДИАЛОГИ ==================== */
+
+/* Базовые стили модальных окон */
+.modal {
+  background-color: var(--background-primary) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-l) !important;
+  box-shadow: var(--shadow-xl) !important;
+  color: var(--text-normal) !important;
+  position: fixed !important;
+  z-index: 1000 !important;
+  max-width: 90vw !important;
+  max-height: 90vh !important;
+  overflow: hidden !important;
+}
+
+.modal::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, 
+    #ff6b9d 0%, 
+    #a3eeff 50%, 
+    #9d4edd 100%) !important;
+  border-top-left-radius: var(--radius-l) !important;
+  border-top-right-radius: var(--radius-l) !important;
+  opacity: 0.8 !important;
+}
+
+.modal-bg {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px) !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 999 !important;
+}
+
+/* Заголовок модального окна */
+.modal-header {
+  background-color: var(--background-primary-alt) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 20px 24px !important;
+  position: relative !important;
+}
+
+.modal-title {
+  color: var(--text-accent) !important;
+  font-size: 1.3em !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  text-shadow: 0 0 10px rgba(255, 107, 157, 0.3) !important;
+}
+
+.modal-close-button {
+  background-color: transparent !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-muted) !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  cursor: pointer !important;
+}
+
+.modal-close-button:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--text-accent) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Контент модального окна */
+.modal-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  padding: 24px !important;
+  max-height: 60vh !important;
+  overflow-y: auto !important;
+}
+
+.modal-content p {
+  margin: 0 0 16px 0 !important;
+  line-height: 1.6 !important;
+}
+
+.modal-content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Футер модального окна */
+.modal-footer {
+  background-color: var(--background-primary-alt) !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  padding: 16px 24px !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+}
+
+/* Кнопки в модальных окнах */
+.modal-button {
+  background-color: var(--interactive-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  min-width: 80px !important;
+  text-align: center !important;
+}
+
+.modal-button:hover {
+  background-color: var(--interactive-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-s) !important;
+}
+
+.modal-button:active {
+  transform: translateY(0) !important;
+}
+
+.modal-button.mod-cta {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.modal-button.mod-cta:hover {
+  background-color: var(--interactive-accent-hover) !important;
+  border-color: var(--interactive-accent-hover) !important;
+}
+
+.modal-button.mod-warning {
+  background-color: var(--interactive-danger) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-danger) !important;
+}
+
+.modal-button.mod-warning:hover {
+  background-color: var(--text-error) !important;
+  border-color: var(--text-error) !important;
+}
+
+/* Формы в модальных окнах */
+.modal-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.modal-form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.modal-form-label {
+  color: var(--text-normal) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.modal-form-input {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.modal-form-input:focus {
+  background-color: var(--background-modifier-form-field-highlighted) !important;
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+.modal-form-input::placeholder {
+  color: var(--text-faint) !important;
+}
+
+.modal-form-textarea {
+  resize: vertical !important;
+  min-height: 80px !important;
+  font-family: inherit !important;
+  line-height: 1.5 !important;
+}
+
+.modal-form-select {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.modal-form-select:focus {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+/* Специфические модальные окна */
+.prompt {
+  background-color: var(--background-primary) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-l) !important;
+  box-shadow: var(--shadow-xl) !important;
+  padding: 0 !important;
+  min-width: 400px !important;
+  max-width: 600px !important;
+}
+
+.prompt-instructions {
+  background-color: var(--background-primary-alt) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-muted) !important;
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+.prompt-input-container {
+  padding: 16px !important;
+}
+
+.prompt-input {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  width: 100% !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.prompt-input:focus {
+  background-color: var(--background-modifier-form-field-highlighted) !important;
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+.prompt-results {
+  background-color: var(--background-primary) !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+}
+
+.prompt-result {
+  background-color: transparent !important;
+  color: var(--text-normal) !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.prompt-result:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.prompt-result.is-selected {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+/* ==================== НАСТРОЙКИ И ИНТЕРФЕЙС НАСТРОЕК ==================== */
+
+/* Контейнер настроек */
+.vertical-tab-content {
+  background-color: var(--background-primary) !important;
+  color: var(--text-normal) !important;
+  padding: 24px !important;
+}
+
+.vertical-tab-content-container {
+  background-color: transparent !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+/* Навигация настроек */
+.vertical-tab-header {
+  background-color: var(--background-primary-alt) !important;
+  border-right: 1px solid var(--background-modifier-border) !important;
+  padding: 0 !important;
+}
+
+.vertical-tab-header-group {
+  padding: 16px 0 !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+}
+
+.vertical-tab-header-group-title {
+  color: var(--text-accent) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 8px 20px !important;
+  margin: 0 !important;
+}
+
+.vertical-tab-nav-item {
+  background-color: transparent !important;
+  color: var(--text-muted) !important;
+  padding: 12px 20px !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  position: relative !important;
+}
+
+.vertical-tab-nav-item:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.vertical-tab-nav-item.is-active {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+}
+
+.vertical-tab-nav-item.is-active::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background: linear-gradient(to bottom, 
+    var(--text-accent) 0%, 
+    var(--text-warning) 50%, 
+    var(--code-normal) 100%) !important;
+}
+
+/* Группы настроек */
+.setting-item {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 20px !important;
+  margin-bottom: 16px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.setting-item:hover {
+  border-color: var(--background-modifier-border-hover) !important;
+  box-shadow: var(--shadow-s) !important;
+  transform: translateY(-1px) !important;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.setting-item-heading {
+  color: var(--text-accent) !important;
+  font-size: 1.1em !important;
+  font-weight: 700 !important;
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.setting-item-name {
+  color: var(--text-normal) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+.setting-item-description {
+  color: var(--text-muted) !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 12px !important;
+}
+
+.setting-item-control {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* Элементы управления настройками */
+.dropdown {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 6px 12px !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  min-width: 120px !important;
+}
+
+.dropdown:hover {
+  background-color: var(--background-modifier-form-field-highlighted) !important;
+  border-color: var(--background-modifier-border-hover) !important;
+}
+
+.dropdown:focus {
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="url"] {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 6px 12px !important;
+  font-size: 14px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus {
+  background-color: var(--background-modifier-form-field-highlighted) !important;
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  background-color: var(--background-modifier-form-field) !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  position: relative !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--interactive-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "✓" !important;
+  color: var(--text-on-accent) !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+input[type="range"] {
+  width: 100% !important;
+  height: 4px !important;
+  background-color: var(--background-modifier-border) !important;
+  border-radius: 2px !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 16px !important;
+  height: 16px !important;
+  background-color: var(--interactive-accent) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: var(--interactive-accent-hover) !important;
+  transform: scale(1.2) !important;
+}
+
+/* Кнопки в настройках */
+.clickable-icon {
+  background-color: var(--interactive-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.clickable-icon:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+  border-color: var(--background-modifier-border-hover) !important;
+  transform: scale(1.1) !important;
+}
+
+/* ==================== УВЕДОМЛЕНИЯ И ТОСТЫ ==================== */
+
+/* Система уведомлений */
+.notice {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  box-shadow: var(--shadow-l) !important;
+  color: var(--text-normal) !important;
+  padding: 12px 16px !important;
+  margin: 8px !important;
+  position: relative !important;
+  max-width: 400px !important;
+  z-index: 1001 !important;
+}
+
+.notice::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 4px !important;
+  background: linear-gradient(to bottom, 
+    var(--text-accent) 0%, 
+    var(--text-warning) 50%, 
+    var(--code-normal) 100%) !important;
+  border-top-left-radius: var(--radius-m) !important;
+  border-bottom-left-radius: var(--radius-m) !important;
+}
+
+.notice-success {
+  border-left-color: var(--text-success) !important;
+}
+
+.notice-success::before {
+  background: linear-gradient(to bottom, 
+    var(--text-success) 0%, 
+    var(--interactive-success) 100%) !important;
+}
+
+.notice-warning {
+  border-left-color: var(--text-warning) !important;
+}
+
+.notice-warning::before {
+  background: linear-gradient(to bottom, 
+    var(--text-warning) 0%, 
+    var(--interactive-warning) 100%) !important;
+}
+
+.notice-error {
+  border-left-color: var(--text-error) !important;
+}
+
+.notice-error::before {
+  background: linear-gradient(to bottom, 
+    var(--text-error) 0%, 
+    var(--interactive-danger) 100%) !important;
+}
+
+.notice-title {
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.notice-message {
+  color: var(--text-normal) !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+.notice-close-button {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--text-muted) !important;
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border-radius: var(--radius-s) !important;
+}
+
+.notice-close-button:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+/* ==================== ПЛАГИНЫ И РАСШИРЕНИЯ ==================== */
+
+/* Панель управления плагинами */
+.plugin-list {
+  background-color: var(--background-primary) !important;
+}
+
+.plugin-item {
+  background-color: var(--background-primary-alt) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.plugin-item:hover {
+  border-color: var(--background-modifier-border-hover) !important;
+  box-shadow: var(--shadow-s) !important;
+  transform: translateY(-1px) !important;
+}
+
+.plugin-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.plugin-item-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 12px !important;
+}
+
+.plugin-item-name {
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  margin: 0 !important;
+}
+
+.plugin-item-version {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  background-color: var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+}
+
+.plugin-item-description {
+  color: var(--text-normal) !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  margin-bottom: 12px !important;
+}
+
+.plugin-item-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+
+.plugin-item-author {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+}
+
+.plugin-item-actions {
+  display: flex !important;
+  gap: 8px !important;
+}
+
+.plugin-item-button {
+  background-color: var(--interactive-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  color: var(--text-normal) !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.plugin-item-button:hover {
+  background-color: var(--interactive-hover) !important;
+  transform: translateY(-1px) !important;
+}
+
+.plugin-item-button.mod-cta {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.plugin-item-button.mod-cta:hover {
+  background-color: var(--interactive-accent-hover) !important;
+}
+
+.plugin-item-button.mod-warning {
+  background-color: var(--interactive-danger) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-danger) !important;
+}
+
+.plugin-item-button.mod-warning:hover {
+  background-color: var(--text-error) !important;
+}
+
+/* Настройки плагинов */
+.plugin-settings {
+  background-color: var(--background-primary) !important;
+  padding: 0 !important;
+}
+
+.plugin-settings-content {
+  background-color: transparent !important;
+  padding: 24px !important;
+}
+
+/* ==================== КОМАНДНАЯ ПАНЕЛЬ ==================== */
+
+.command-palette {
+  background-color: var(--background-primary) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-l) !important;
+  box-shadow: var(--shadow-xl) !important;
+  max-width: 600px !important;
+  max-height: 500px !important;
+  overflow: hidden !important;
+}
+
+.command-palette-header {
+  background-color: var(--background-primary-alt) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 16px 20px !important;
+}
+
+.command-palette-input {
+  background-color: var(--background-modifier-form-field) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 8px 12px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  transition: all var(--anim-duration-fast) ease !important;
+}
+
+.command-palette-input:focus {
+  background-color: var(--background-modifier-form-field-highlighted) !important;
+  border-color: var(--interactive-accent) !important;
+  box-shadow: 0 0 0 2px rgba(199, 36, 74, 0.2) !important;
+  outline: none !important;
+}
+
+.command-palette-results {
+  background-color: var(--background-primary) !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+}
+
+.command-palette-result {
+  background-color: transparent !important;
+  color: var(--text-normal) !important;
+  padding: 12px 20px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.command-palette-result:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.command-palette-result.is-selected {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.command-palette-result-title {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
+}
+
+.command-palette-result-hotkey {
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  background-color: var(--background-modifier-border) !important;
+  border-radius: var(--radius-s) !important;
+  padding: 2px 6px !important;
+}
+
+.command-palette-result.is-selected .command-palette-result-hotkey {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--text-on-accent) !important;
+}
+
+.command-palette-footer {
+  background-color: var(--background-primary-alt) !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  padding: 12px 20px !important;
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+/* ==================== ПАНЕЛЬ ИНСТРУМЕНТОВ ==================== */
+
+.toolbar {
+  background-color: var(--background-primary-alt) !important;
+  border-bottom: 1px solid var(--background-modifier-border) !important;
+  padding: 8px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.toolbar-button {
+  background-color: var(--interactive-normal) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-radius: var(--radius-m) !important;
+  color: var(--text-normal) !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.toolbar-button:hover {
+  background-color: var(--interactive-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-s) !important;
+}
+
+.toolbar-button:active {
+  transform: translateY(0) !important;
+}
+
+.toolbar-button.mod-cta {
+  background-color: var(--interactive-accent) !important;
+  color: var(--text-on-accent) !important;
+  border-color: var(--interactive-accent) !important;
+}
+
+.toolbar-button.mod-cta:hover {
+  background-color: var(--interactive-accent-hover) !important;
+}
+
+.toolbar-separator {
+  width: 1px !important;
+  height: 20px !important;
+  background-color: var(--background-modifier-border) !important;
+  margin: 0 8px !important;
+}
+
+/* ==================== ПАНЕЛЬ СОСТОЯНИЯ ==================== */
+
+.status-bar {
+  background-color: var(--background-primary-alt) !important;
+  border-top: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+  height: auto !important;
+  min-height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.status-bar-item {
+  color: var(--text-muted) !important;
+  padding: 2px 6px !important;
+  border-radius: var(--radius-s) !important;
+  transition: all var(--anim-duration-fast) ease !important;
+  cursor: default !important;
+}
+
+.status-bar-item:hover {
+  background-color: var(--interactive-hover) !important;
+  color: var(--text-normal) !important;
+}
+
+.status-bar-item.mod-clickable {
+  cursor: pointer !important;
+}
+
+.status-bar-item-segment {
+  border-color: var(--background-modifier-border) !important;
+}
+
+.status-bar-item.plugin-update-available {
+  color: var(--text-warning) !important;
+  font-weight: 600 !important;
+}
+
+.status-bar-item.sync-status {
+  color: var(--text-success) !important;
+}
+
+.status-bar-item.sync-status.syncing {
+  color: var(--text-warning) !important;
+}
+
+.status-bar-item.sync-status.error {
+  color: var(--text-error) !important;
+}
+
+/* ==========================================================================
+   End of Part 5 - Complete
+   ========================================================================== */
+   /* ==========================================================================
+   Part 6: Responsive Design, Animations, Utilities & Final Touches - Complete Version
+   ========================================================================== */
+
+/* ==================== RESPONSIVE ДИЗАЙН И MOBILE СТИЛИ ==================== */
+
+/* Планшеты и маленькие десктопы (1024px - 768px) */
+@media (max-width: 1024px) {
+  /* Рабочая область */
+  .workspace-tab-header {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+  }
+  
+  .workspace-leaf-content {
+    padding: 16px !important;
+  }
+  
+  /* Редактор и просмотр */
+  .cm-editor {
+    padding: 16px !important;
+  }
+  
+  .markdown-preview-view {
+    padding: 16px !important;
+  }
+  
+  .cm-content, 
+  .markdown-preview-section {
+    max-width: 90% !important;
+  }
+  
+  /* Заголовки */
+  .cm-header-1, .markdown-preview-view h1 {
+    font-size: 1.8em !important;
+  }
+  
+  .cm-header-2, .markdown-preview-view h2 {
+    font-size: 1.5em !important;
+  }
+  
+  .cm-header-3, .markdown-preview-view h3 {
+    font-size: 1.3em !important;
+  }
+  
+  /* Таблицы */
+  .markdown-preview-view table {
+    font-size: 14px !important;
+  }
+  
+  .markdown-preview-view th,
+  .markdown-preview-view td {
+    padding: 10px 14px !important;
+  }
+  
+  /* Боковые панели */
+  .workspace-leaf-content[data-type="file-explorer"] {
+    min-width: 200px !important;
+  }
+  
+  .nav-folder-title,
+  .nav-file-title {
+    font-size: 13px !important;
+    padding: 6px 8px 6px 12px !important;
+  }
+  
+  /* Модальные окна */
+  .modal {
+    max-width: 95vw !important;
+    max-height: 95vh !important;
+  }
+  
+  .vertical-tab-content {
+    padding: 20px !important;
+  }
+}
+
+/* Планшеты (768px - 480px) */
+@media (max-width: 768px) {
+  /* Основные настройки */
+  body {
+    font-size: 15px !important;
+  }
+  
+  /* Рабочая область */
+  .workspace-tabs {
+    flex-direction: column !important;
+  }
+  
+  .workspace-tab-header {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+  }
+  
+  .workspace-tab-header-inner {
+    padding: 6px 10px !important;
+  }
+  
+  /* Редактор и просмотр */
+  .cm-editor {
+    padding: 12px !important;
+    font-size: 15px !important;
+  }
+  
+  .markdown-preview-view {
+    padding: 12px !important;
+    font-size: 15px !important;
+  }
+  
+  .cm-content,
+  .markdown-preview-section {
+    max-width: 100% !important;
+    padding: 10px 0 !important;
+  }
+  
+  /* Заголовки */
+  .cm-header-1, .markdown-preview-view h1 {
+    font-size: 1.6em !important;
+    margin: 1.2em 0 0.4em 0 !important;
+  }
+  
+  .cm-header-2, .markdown-preview-view h2 {
+    font-size: 1.4em !important;
+    margin: 1em 0 0.4em 0 !important;
+  }
+  
+  .cm-header-3, .markdown-preview-view h3 {
+    font-size: 1.2em !important;
+    margin: 0.8em 0 0.4em 0 !important;
+  }
+  
+  /* Код */
+  .cm-inline-code, 
+  .markdown-preview-view code {
+    font-size: 13px !important;
+    padding: 1px 4px !important;
+  }
+  
+  .cm-codeBlock,
+  .markdown-preview-view pre {
+    padding: 16px !important;
+    font-size: 13px !important;
+  }
+  
+  /* Таблицы */
+  .markdown-preview-view table {
+    font-size: 13px !important;
+    margin: 12px 0 !important;
+  }
+  
+  .markdown-preview-view th,
+  .markdown-preview-view td {
+    padding: 8px 12px !important;
+  }
+  
+  /* Боковые панели */
+  .workspace-leaf-content[data-type="file-explorer"] {
+    min-width: 180px !important;
+  }
+  
+  .nav-folder-title,
+  .nav-file-title {
+    font-size: 12px !important;
+    padding: 4px 6px 4px 10px !important;
+  }
+  
+  /* Настройки */
+  .vertical-tab-content {
+    padding: 16px !important;
+  }
+  
+  .setting-item {
+    padding: 16px !important;
+  }
+  
+  /* Модальные окна */
+  .modal {
+    width: 95vw !important;
+    margin: 2.5vh auto !important;
+  }
+  
+  .modal-content {
+    padding: 20px !important;
+    max-height: 70vh !important;
+  }
+  
+  .prompt {
+    min-width: 90vw !important;
+  }
+  
+  /* Командная панель */
+  .command-palette {
+    max-width: 95vw !important;
+    max-height: 80vh !important;
+  }
+}
+
+/* Мобильные устройства (480px и меньше) */
+@media (max-width: 480px) {
+  /* Основные настройки */
+  body {
+    font-size: 14px !important;
+  }
+  
+  /* Рабочая область */
+  .workspace-tab-header {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+  
+  .workspace-tab-header-inner {
+    padding: 4px 8px !important;
+  }
+  
+  /* Редактор и просмотр */
+  .cm-editor {
+    padding: 8px !important;
+    font-size: 14px !important;
+  }
+  
+  .markdown-preview-view {
+    padding: 8px !important;
+    font-size: 14px !important;
+  }
+  
+  .cm-content,
+  .markdown-preview-section {
+    padding: 8px 0 !important;
+  }
+  
+  /* Заголовки */
+  .cm-header-1, .markdown-preview-view h1 {
+    font-size: 1.4em !important;
+    margin: 1em 0 0.3em 0 !important;
+  }
+  
+  .cm-header-2, .markdown-preview-view h2 {
+    font-size: 1.2em !important;
+    margin: 0.8em 0 0.3em 0 !important;
+  }
+  
+  .cm-header-3, .markdown-preview-view h3 {
+    font-size: 1.1em !important;
+    margin: 0.6em 0 0.3em 0 !important;
+  }
+  
+  /* Параграфы и текст */
+  .cm-line,
+  .markdown-preview-view p {
+    line-height: 1.6 !important;
+  }
+  
+  /* Списки */
+  .markdown-preview-view ul,
+  .markdown-preview-view ol {
+    padding-left: 1.5em !important;
+  }
+  
+  /* Цитаты */
+  .cm-quote,
+  .markdown-preview-view blockquote {
+    padding: 10px 14px 10px 18px !important;
+    margin: 12px 0 !important;
+  }
+  
+  /* Код */
+  .cm-inline-code,
+  .markdown-preview-view code {
+    font-size: 12px !important;
+    padding: 1px 3px !important;
+  }
+  
+  .cm-codeBlock,
+  .markdown-preview-view pre {
+    padding: 12px !important;
+    font-size: 12px !important;
+    margin: 12px 0 !important;
+  }
+  
+  /* Таблицы */
+  .markdown-preview-view table {
+    font-size: 12px !important;
+  }
+  
+  .markdown-preview-view th,
+  .markdown-preview-view td {
+    padding: 6px 8px !important;
+  }
+  
+  /* Боковые панели */
+  .workspace-leaf-content[data-type="file-explorer"] {
+    min-width: 160px !important;
+  }
+  
+  .nav-folder-title {
+    font-size: 11px !important;
+    padding: 3px 4px 3px 8px !important;
+  }
+  
+  .nav-file-title {
+    font-size: 11px !important;
+    padding: 3px 4px 3px 16px !important;
+  }
+  
+  /* Настройки */
+  .vertical-tab-content {
+    padding: 12px !important;
+  }
+  
+  .setting-item {
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .setting-item-control {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  
+  /* Модальные окна */
+  .modal {
+    width: 98vw !important;
+    margin: 1vh auto !important;
+  }
+  
+  .modal-header {
+    padding: 16px 20px !important;
+  }
+  
+  .modal-content {
+    padding: 16px !important;
+    max-height: 75vh !important;
+  }
+  
+  .modal-footer {
+    padding: 12px 20px !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .modal-button {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* Командная панель */
+  .command-palette {
+    max-width: 98vw !important;
+    max-height: 85vh !important;
+  }
+  
+  .command-palette-result {
+    padding: 10px 16px !important;
+  }
+  
+  /* Статус бар */
+  .status-bar {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .status-bar-item {
+    padding: 1px 4px !important;
+    margin: 1px !important;
+  }
+}
+
+/* Очень маленькие экраны (320px и меньше) */
+@media (max-width: 320px) {
+  /* Минимальные настройки для очень маленьких экранов */
+  body {
+    font-size: 13px !important;
+  }
+  
+  .workspace-tab-header {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+  
+  .cm-editor,
+  .markdown-preview-view {
+    padding: 4px !important;
+  }
+  
+  .modal {
+    border-radius: var(--radius-m) !important;
+  }
+  
+  .modal-header,
+  .modal-content,
+  .modal-footer {
+    padding: 12px !important;
+  }
+}
+
+/* ==================== АНИМАЦИИ И ПЕРЕХОДЫ ==================== */
+
+/* Плавные переходы для всех интерактивных элементов */
+* {
+  transition: 
+    background-color var(--anim-duration-fast) ease,
+    color var(--anim-duration-fast) ease,
+    border-color var(--anim-duration-fast) ease,
+    box-shadow var(--anim-duration-fast) ease,
+    transform var(--anim-duration-fast) ease,
+    opacity var(--anim-duration-fast) ease !important;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--anim-duration-normal) ease-out !important;
+}
+
+/* Анимация исчезновения */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.fade-out {
+  animation: fadeOut var(--anim-duration-normal) ease-in !important;
+}
+
+/* Анимация пульсации для загрузки */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite !important;
+}
+
+/* Анимация неонового свечения */
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor;
+  }
+  50% {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor;
+  }
+}
+
+.neon-glow {
+  animation: neonGlow 3s ease-in-out infinite !important;
+}
+
+/* Анимация плавающего эффекта */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite !important;
+}
+
+/* Анимация вращения */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite !important;
+}
+
+/* Анимация подчеркивания */
+@keyframes underline {
+  from {
+    background-size: 0% 2px;
+  }
+  to {
+    background-size: 100% 2px;
+  }
+}
+
+.underline-animation {
+  background-image: linear-gradient(var(--text-accent), var(--text-accent)) !important;
+  background-position: 0 100% !important;
+  background-repeat: no-repeat !important;
+  background-size: 0% 2px !important;
+  transition: background-size var(--anim-duration-normal) ease !important;
+}
+
+.underline-animation:hover {
+  background-size: 100% 2px !important;
+}
+
+/* Анимация масштабирования */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-in {
+  animation: scaleIn var(--anim-duration-normal) ease-out !important;
+}
+
+/* Анимация скольжения */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft var(--anim-duration-normal) ease-out !important;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInFromRight var(--anim-duration-normal) ease-out !important;
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-top {
+  animation: slideInFromTop var(--anim-duration-normal) ease-out !important;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom var(--anim-duration-normal) ease-out !important;
+}
+
+/* ==================== УТИЛИТАРНЫЕ КЛАССЫ ==================== */
+
+/* Текст */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+.text-nowrap { white-space: nowrap !important; }
+.text-wrap { white-space: normal !important; }
+.text-pre { white-space: pre !important; }
+
+.text-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Цвета текста */
+.text-primary { color: var(--text-normal) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.text-faint { color: var(--text-faint) !important; }
+.text-accent { color: var(--text-accent) !important; }
+.text-success { color: var(--text-success) !important; }
+.text-warning { color: var(--text-warning) !important; }
+.text-error { color: var(--text-error) !important; }
+
+/* Фоны */
+.bg-primary { background-color: var(--background-primary) !important; }
+.bg-primary-alt { background-color: var(--background-primary-alt) !important; }
+.bg-secondary { background-color: var(--background-secondary) !important; }
+.bg-secondary-alt { background-color: var(--background-secondary-alt) !important; }
+.bg-accent { background-color: var(--interactive-accent) !important; }
+
+/* Границы */
+.border { border: 1px solid var(--background-modifier-border) !important; }
+.border-top { border-top: 1px solid var(--background-modifier-border) !important; }
+.border-right { border-right: 1px solid var(--background-modifier-border) !important; }
+.border-bottom { border-bottom: 1px solid var(--background-modifier-border) !important; }
+.border-left { border-left: 1px solid var(--background-modifier-border) !important; }
+
+.border-none { border: none !important; }
+.border-transparent { border-color: transparent !important; }
+
+/* Скругления */
+.rounded-none { border-radius: 0 !important; }
+.rounded-sm { border-radius: var(--radius-s) !important; }
+.rounded { border-radius: var(--radius-m) !important; }
+.rounded-lg { border-radius: var(--radius-l) !important; }
+.rounded-full { border-radius: 50% !important; }
+
+/* Тени */
+.shadow-none { box-shadow: none !important; }
+.shadow-sm { box-shadow: var(--shadow-s) !important; }
+.shadow { box-shadow: var(--shadow-m) !important; }
+.shadow-lg { box-shadow: var(--shadow-l) !important; }
+.shadow-xl { box-shadow: var(--shadow-xl) !important; }
+
+/* Отступы */
+.p-0 { padding: 0 !important; }
+.p-1 { padding: var(--size-4-1) !important; }
+.p-2 { padding: var(--size-4-2) !important; }
+.p-3 { padding: var(--size-4-3) !important; }
+.p-4 { padding: var(--size-4-4) !important; }
+.p-5 { padding: var(--size-4-5) !important; }
+.p-6 { padding: var(--size-4-6) !important; }
+
+.px-0 { padding-left: 0 !important; padding-right: 0 !important; }
+.px-1 { padding-left: var(--size-4-1) !important; padding-right: var(--size-4-1) !important; }
+.px-2 { padding-left: var(--size-4-2) !important; padding-right: var(--size-4-2) !important; }
+.px-3 { padding-left: var(--size-4-3) !important; padding-right: var(--size-4-3) !important; }
+.px-4 { padding-left: var(--size-4-4) !important; padding-right: var(--size-4-4) !important; }
+
+.py-0 { padding-top: 0 !important; padding-bottom: 0 !important; }
+.py-1 { padding-top: var(--size-4-1) !important; padding-bottom: var(--size-4-1) !important; }
+.py-2 { padding-top: var(--size-4-2) !important; padding-bottom: var(--size-4-2) !important; }
+.py-3 { padding-top: var(--size-4-3) !important; padding-bottom: var(--size-4-3) !important; }
+.py-4 { padding-top: var(--size-4-4) !important; padding-bottom: var(--size-4-4) !important; }
+
+/* Внешние отступы */
+.m-0 { margin: 0 !important; }
+.m-1 { margin: var(--size-4-1) !important; }
+.m-2 { margin: var(--size-4-2) !important; }
+.m-3 { margin: var(--size-4-3) !important; }
+.m-4 { margin: var(--size-4-4) !important; }
+.m-5 { margin: var(--size-4-5) !important; }
+.m-6 { margin: var(--size-4-6) !important; }
+
+.mx-0 { margin-left: 0 !important; margin-right: 0 !important; }
+.mx-1 { margin-left: var(--size-4-1) !important; margin-right: var(--size-4-1) !important; }
+.mx-2 { margin-left: var(--size-4-2) !important; margin-right: var(--size-4-2) !important; }
+.mx-3 { margin-left: var(--size-4-3) !important; margin-right: var(--size-4-3) !important; }
+.mx-4 { margin-left: var(--size-4-4) !important; margin-right: var(--size-4-4) !important; }
+
+.my-0 { margin-top: 0 !important; margin-bottom: 0 !important; }
+.my-1 { margin-top: var(--size-4-1) !important; margin-bottom: var(--size-4-1) !important; }
+.my-2 { margin-top: var(--size-4-2) !important; margin-bottom: var(--size-4-2) !important; }
+.my-3 { margin-top: var(--size-4-3) !important; margin-bottom: var(--size-4-3) !important; }
+.my-4 { margin-top: var(--size-4-4) !important; margin-bottom: var(--size-4-4) !important; }
+
+.ml-auto { margin-left: auto !important; }
+.mr-auto { margin-right: auto !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+/* Flexbox */
+.flex { display: flex !important; }
+.inline-flex { display: inline-flex !important; }
+.flex-row { flex-direction: row !important; }
+.flex-col { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+
+.items-start { align-items: flex-start !important; }
+.items-end { align-items: flex-end !important; }
+.items-center { align-items: center !important; }
+.items-baseline { align-items: baseline !important; }
+.items-stretch { align-items: stretch !important; }
+
+.justify-start { justify-content: flex-start !important; }
+.justify-end { justify-content: flex-end !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around { justify-content: space-around !important; }
+.justify-evenly { justify-content: space-evenly !important; }
+
+.flex-1 { flex: 1 1 0% !important; }
+.flex-auto { flex: 1 1 auto !important; }
+.flex-none { flex: none !important; }
+
+/* Grid */
+.grid { display: grid !important; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+
+.gap-1 { gap: var(--size-4-1) !important; }
+.gap-2 { gap: var(--size-4-2) !important; }
+.gap-3 { gap: var(--size-4-3) !important; }
+.gap-4 { gap: var(--size-4-4) !important; }
+
+/* Размеры */
+.w-full { width: 100% !important; }
+.w-auto { width: auto !important; }
+.w-screen { width: 100vw !important; }
+
+.h-full { height: 100% !important; }
+.h-auto { height: auto !important; }
+.h-screen { height: 100vh !important; }
+
+.min-w-0 { min-width: 0 !important; }
+.min-w-full { min-width: 100% !important; }
+
+.min-h-0 { min-height: 0 !important; }
+.min-h-full { min-height: 100% !important; }
+.min-h-screen { min-height: 100vh !important; }
+
+.max-w-full { max-width: 100% !important; }
+.max-w-screen { max-width: 100vw !important; }
+
+.max-h-full { max-height: 100% !important; }
+.max-h-screen { max-height: 100vh !important; }
+
+/* Позиционирование */
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.fixed { position: fixed !important; }
+.sticky { position: sticky !important; }
+
+.inset-0 { top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; }
+
+.top-0 { top: 0 !important; }
+.right-0 { right: 0 !important; }
+.bottom-0 { bottom: 0 !important; }
+.left-0 { left: 0 !important; }
+
+.z-0 { z-index: 0 !important; }
+.z-10 { z-index: 10 !important; }
+.z-20 { z-index: 20 !important; }
+.z-30 { z-index: 30 !important; }
+.z-40 { z-index: 40 !important; }
+.z-50 { z-index: 50 !important; }
+.z-auto { z-index: auto !important; }
+
+/* Overflow */
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+.overflow-x-auto { overflow-x: auto !important; }
+.overflow-y-auto { overflow-y: auto !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-y-hidden { overflow-y: hidden !important; }
+
+/* Курсоры */
+.cursor-auto { cursor: auto !important; }
+.cursor-default { cursor: default !important; }
+.cursor-pointer { cursor: pointer !important; }
+.cursor-text { cursor: text !important; }
+.cursor-move { cursor: move !important; }
+.cursor-not-allowed { cursor: not-allowed !important; }
+
+/* Выделение текста */
+.select-none { user-select: none !important; }
+.select-text { user-select: text !important; }
+.select-all { user-select: all !important; }
+
+/* Видимость */
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+/* Прозрачность */
+.opacity-0 { opacity: 0 !important; }
+.opacity-25 { opacity: 0.25 !important; }
+.opacity-50 { opacity: 0.5 !important; }
+.opacity-75 { opacity: 0.75 !important; }
+.opacity-100 { opacity: 1 !important; }
+
+/* ==================== ФИНАЛЬНЫЕ ШТРИХИ И ОПТИМИЗАЦИЯ ==================== */
+
+/* Улучшенная производительность для анимаций */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Поддержка высококонтрастного режима */
+@media (prefers-contrast: high) {
+  :root {
+    --background-modifier-border: #000000 !important;
+    --text-normal: #000000 !important;
+    --text-muted: #333333 !important;
+  }
+  
+  .cm-editor .cm-line,
+  .markdown-preview-view {
+    font-weight: 600 !important;
+  }
+}
+
+/* Поддержка темного режима по умолчанию */
+@media (prefers-color-scheme: dark) {
+  .theme-dark {
+    /* Убеждаемся, что тема остается темной */
+    --background-primary: #1a0b1f !important;
+    --background-primary-alt: #160916 !important;
+  }
+}
+
+/* Оптимизация для печати */
+@media print {
+  .workspace-tabs,
+  .workspace-leaf-resize-handle,
+  .status-bar,
+  .modal,
+  .notice {
+    display: none !important;
+  }
+  
+  .workspace-leaf {
+    position: static !important;
+  }
+  
+  .markdown-preview-view {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+  
+  .markdown-preview-view * {
+    color: black !important;
+    background: transparent !important;
+  }
+  
+  a {
+    color: #0000EE !important;
+  }
+  
+  code {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  pre {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* Улучшенная доступность для фокуса */
+:focus-visible {
+  outline: 2px solid var(--interactive-accent) !important;
+  outline-offset: 2px !important;
+  border-radius: var(--radius-s) !important;
+}
+
+/* Улучшенная читаемость для выделенного текста */
+::selection {
+  background-color: var(--text-selection) !important;
+  color: inherit !important;
+}
+
+::-moz-selection {
+  background-color: var(--text-selection) !important;
+  color: inherit !important;
+}
+
+/* Кастомный скроллбар для всех элементов */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg) !important;
+  border-radius: 5px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg) !important;
+  border-radius: 5px !important;
+  border: 2px solid var(--scrollbar-bg) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-bg-hover) !important;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-bg) !important;
+}
+
+/* Поддержка RTL (Right-to-Left) языков */
+[dir="rtl"] .cm-editor .cm-content {
+  text-align: right !important;
+}
+
+[dir="rtl"] .markdown-preview-view {
+  text-align: right !important;
+}
+
+[dir="rtl"] .nav-file-title {
+  padding: 4px 20px 4px 8px !important;
+}
+
+[dir="rtl"] .modal-close-button {
+  left: 16px !important;
+  right: auto !important;
+}
+
+/* Финальные глобальные стили для согласованности */
+* {
+  box-sizing: border-box !important;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Сброс стилей для определенных элементов */
+button, input, select, textarea {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Улучшенная типографика */
+.cm-editor, .markdown-preview-view {
+  font-kerning: normal !important;
+  font-variant-ligatures: common-ligatures !important;
+  font-feature-settings: "kern", "liga", "clig", "calt" !important;
+}
+
+/* ==================== КОНЕЦ ТЕМЫ ==================== */
+
+/* 
+   Dark Nebula Theme for Obsidian
+   Версия: 2.0.0
+   Полная версия: 3000+ строк CSS
+   Автор: AI Assistant
+   Создано с ❤️ и капелькой неона
+*/
+
+/* ==========================================================================
+   End of Part 6 - Complete & Final
+   ========================================================================== */
